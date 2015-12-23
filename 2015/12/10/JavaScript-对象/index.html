@@ -3,30 +3,43 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hexo | 翌子涵</title>
+  <title>JavaScript-对象 | 翌子涵</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="keywords" content="博客,技术">
+  <meta name="keywords" content="JavaScript">
   
 
-  <meta name="description" content="1.使用npm安装Hexo1npm install -g hexo-cli
-2.在当前文件夹新建myblog项目并进入myblog项目12hexo init myblogcd myblog
-3.文件信息1myblog&amp;#10;&amp;#9500;&amp;#9472;&amp;#9472; node_modules    &amp;#27169;&amp;#29256;&amp;#25991;&amp;#20214;&amp;#22841;&amp;#10;&amp;#95">
+  <meta name="description" content="前言
+对象是JS的基本数据类型；
+对象也可看做是属性的无序集合，每个属性都是一个名/值对；
+也可以把对象看成是字符串到值的映射；
+对象除了可以自有的属性，还可以从一个称为原型的对象继承属性；对象的方法通常是继承的属性；
+JS对象是动态的——可以新增属性也可以删除属性；
+内置对象：由ECMAScript规范定义的对象或类；
+宿主对象：由JS解释器所嵌入的宿主环境定义的，如：HTMLElement对象">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/2015/11/23/Hexo/index.html">
+<meta property="og:title" content="JavaScript-对象">
+<meta property="og:url" content="http://yoursite.com/2015/12/10/JavaScript-对象/index.html">
 <meta property="og:site_name" content="翌子涵">
-<meta property="og:description" content="1.使用npm安装Hexo1npm install -g hexo-cli
-2.在当前文件夹新建myblog项目并进入myblog项目12hexo init myblogcd myblog
-3.文件信息1myblog&amp;#10;&amp;#9500;&amp;#9472;&amp;#9472; node_modules    &amp;#27169;&amp;#29256;&amp;#25991;&amp;#20214;&amp;#22841;&amp;#10;&amp;#95">
-<meta property="og:image" content="http://yoursite.com/img/Hexo.png">
-<meta property="og:image" content="http://yoursite.com/img/contact.png">
-<meta property="og:updated_time" content="2015-11-23T12:08:25.410Z">
+<meta property="og:description" content="前言
+对象是JS的基本数据类型；
+对象也可看做是属性的无序集合，每个属性都是一个名/值对；
+也可以把对象看成是字符串到值的映射；
+对象除了可以自有的属性，还可以从一个称为原型的对象继承属性；对象的方法通常是继承的属性；
+JS对象是动态的——可以新增属性也可以删除属性；
+内置对象：由ECMAScript规范定义的对象或类；
+宿主对象：由JS解释器所嵌入的宿主环境定义的，如：HTMLElement对象">
+<meta property="og:updated_time" content="2015-12-10T06:10:44.303Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="1.使用npm安装Hexo1npm install -g hexo-cli
-2.在当前文件夹新建myblog项目并进入myblog项目12hexo init myblogcd myblog
-3.文件信息1myblog&amp;#10;&amp;#9500;&amp;#9472;&amp;#9472; node_modules    &amp;#27169;&amp;#29256;&amp;#25991;&amp;#20214;&amp;#22841;&amp;#10;&amp;#95">
+<meta name="twitter:title" content="JavaScript-对象">
+<meta name="twitter:description" content="前言
+对象是JS的基本数据类型；
+对象也可看做是属性的无序集合，每个属性都是一个名/值对；
+也可以把对象看成是字符串到值的映射；
+对象除了可以自有的属性，还可以从一个称为原型的对象继承属性；对象的方法通常是继承的属性；
+JS对象是动态的——可以新增属性也可以删除属性；
+内置对象：由ECMAScript规范定义的对象或类；
+宿主对象：由JS解释器所嵌入的宿主环境定义的，如：HTMLElement对象">
   
   
     <link rel="icon" href="/favicon.png">
@@ -100,7 +113,7 @@
             </div>
             <div class="main-body-content">
               
-  <article id="post-Hexo" class="article article-single article-type-post" itemscope itemprop="blogPost">
+  <article id="post-JavaScript-对象" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
       <!--  -->
       
@@ -108,39 +121,82 @@
           
   
     <h1 class="article-title" itemprop="name">
-      Hexo
+      JavaScript-对象
     </h1>
   
 
         </header>
       
       <p class="article-byline">
-        <a href="/2015/11/23/Hexo/" class="article-date">
-  <time datetime="2015-11-23T11:07:04.000Z" itemprop="datePublished">2015-11-23</time>
+        <a href="/2015/12/10/JavaScript-对象/" class="article-date">
+  <time datetime="2015-12-10T02:29:23.000Z" itemprop="datePublished">2015-12-10</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <p><img src="/img/Hexo.png" alt=""><br><img src="/img/contact.png" alt=""></p>
-<h4 id="1-使用npm安装Hexo">1.使用npm安装Hexo</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="operator"><span class="keyword">install</span> -<span class="keyword">g</span> hexo-cli</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-在当前文件夹新建myblog项目并进入myblog项目">2.在当前文件夹新建myblog项目并进入myblog项目</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init myblog</span><br><span class="line"><span class="built_in">cd</span> myblog</span><br></pre></td></tr></table></figure>
-<h4 id="3-文件信息">3.文件信息</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myblog&#10;&#9500;&#9472;&#9472; node_modules    &#27169;&#29256;&#25991;&#20214;&#22841;&#10;&#9500;&#9472;&#9472; public          &#20844;&#20849;&#25991;&#20214;&#22841;&#10;&#9500;&#9472;&#9472; scaffolds       &#27169;&#29256;&#25991;&#20214;&#22841;&#10;&#9500;&#9472;&#9472; source          &#36164;&#28304;&#25991;&#20214;&#22841;&#10;&#9500;&#9472;&#9472; themes          &#20027;&#39064;&#25991;&#20214;&#22841;&#10;&#9500;&#9472;&#9472; _config.yml     &#37197;&#32622;&#25991;&#20214;&#10;&#9500;&#9472;&#9472; db.json         ...&#10;&#9492;&#9472;&#9472; package.json    &#24212;&#29992;&#31243;&#24207;&#20449;&#24687;</span><br></pre></td></tr></table></figure>
-<h4 id="4-根据package-json使用npm安装所需文件">4.根据package.json使用npm安装所需文件</h4><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-在_config-yml文件更改网站的配置信息">5.在<code>_config.yml</code>文件更改网站的配置信息</h4><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># Site</span></span><br><span class="line"><span class="label">title:</span> 翌子涵</span><br><span class="line"><span class="label">subtitle:</span></span><br><span class="line"><span class="label">description:</span></span><br><span class="line"><span class="label">author:</span> yizihan</span><br></pre></td></tr></table></figure>
-<h4 id="6-重新生成静态文件">6.重新生成静态文件</h4><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">ge</span><span class="label">nerate</span></span><br></pre></td></tr></table></figure>
-<h3 id="7-重新启动服务器">7.重新启动服务器</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">server</span></span><br></pre></td></tr></table></figure>
-<h3 id="8-新建一篇文章">8.新建一篇文章</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> 第一篇文章</span><br></pre></td></tr></table></figure>
-<h3 id="9-给文章添加标签">9.给文章添加标签</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tags:</span><br><span class="line">-<span class="ruby"> 前端</span><br><span class="line"></span>-<span class="ruby"> 后端</span></span><br></pre></td></tr></table></figure>
-<h3 id="10-给文章添加分类(子分类）">10.给文章添加分类(子分类）</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line">-<span class="ruby"> 技术</span><br><span class="line"></span>-<span class="ruby"> javascript</span></span><br></pre></td></tr></table></figure>
-<h3 id="11-下载安装网站主题">11.下载安装网站主题</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</span><br><span class="line">// 将主题代码下载到theme/hueman文件夹</span><br></pre></td></tr></table></figure>
-<h3 id="12-部署">12.部署</h3><p>在myblog文件夹内是安装插件<br><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="command">\Users</span><span class="command">\DELL</span><span class="command">\myblog</span>&gt;npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>修改配置<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">  <span class="attribute">type</span>: git</span><br><span class="line">  <span class="attribute">repo</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:yizihan/yizihan.github.io.git</span><br><span class="line">  <span class="attribute">branch</span>: master</span><br><span class="line">  <span class="attribute">message</span>: Hexo Blog</span><br></pre></td></tr></table></figure></p>
-<h4 id="13-提交部署">13.提交部署</h4><figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="command">\Users</span><span class="command">\DELL</span><span class="command">\myblog</span>&gt;hexo generate --deploy</span><br><span class="line">...</span><br><span class="line">INFO Deploy done: git</span><br></pre></td></tr></table></figure>
+        <h3 id="前言">前言</h3><ul>
+<li>对象是JS的基本数据类型；</li>
+<li>对象也可看做是属性的无序集合，每个属性都是一个名/值对；</li>
+<li>也可以把对象看成是字符串到值的映射；</li>
+<li>对象除了可以自有的属性，还可以从一个称为原型的对象继承属性；对象的方法通常是继承的属性；</li>
+<li>JS对象是动态的——可以新增属性也可以删除属性；</li>
+<li>内置对象：由ECMAScript规范定义的对象或类；</li>
+<li>宿主对象：由JS解释器所嵌入的宿主环境定义的，如：HTMLElement对象；</li>
+<li>自定义对象：由运行中的JS代码创建的对象；</li>
+<li>自有属性：直接在对象中定义的属性；</li>
+<li>继承属性：在对象的原型对象定义的属性；</li>
+</ul>
+<h3 id="6-1_创建对象">6.1 创建对象</h3><p>可通过对象直接量、关键字new和（ECMAScript 5）Object.create()函数来创建。</p>
+<h4 id="6-1-1_对象直接量">6.1.1 对象直接量</h4><ul>
+<li>对象直接量：由若干名/值对组成的映射表，名/值对中间用冒号分隔，名/值对之间用逗号分隔，整个映射表用花括号括起来。</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> empty</span> = &#123;&#125;;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> point</span> = &#123; x:point.x, y:point.y &#125;;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> book</span> = &#123;</span><br><span class="line">  <span class="string">"main title"</span>: <span class="string">"JavaScript"</span>, <span class="comment">// 属性命名有空格，须使用字符串表示；</span></span><br><span class="line">  <span class="string">"sub-title"</span>: <span class="string">"Small"</span>,       <span class="comment">// 属性名有连字符；</span></span><br><span class="line">  <span class="string">"for"</span>: <span class="string">"all audiences"</span>,     <span class="comment">// for是保留字，须使用引号；</span></span><br><span class="line">  author: &#123;                   <span class="comment">// 这个属性的值是一个对象；</span></span><br><span class="line">      firstname: <span class="string">"David"</span>,</span><br><span class="line">      surname: <span class="string">"Flanagan"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 对象直接量是一个表达式，这个表达式的每次运算都创建并初始化一个新的对象。</span></span><br></pre></td></tr></table></figure>
+<h4 id="6-1-2_通过new创建对象">6.1.2 通过new创建对象</h4><ul>
+<li>new运算符创建并初始化一个新对象。关键字new后跟随一个函数调用。</li>
+<li>这里的函数称做构造函数，构造函数用以初始化一个新创建的对象。<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();           <span class="comment">// 创建一个空对象，和&#123;&#125;一样；</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>除了这些内置构造函数，用自定义构造函数来初始化新对象也是常见的。见第9章。</p>
+<h4 id="6-1-3_原型">6.1.3 原型</h4><ul>
+<li>每个JS对象都和另一个对象相关联；“另一个”对象就是我们熟知的<strong>原型</strong>，每个对象都从原型继承属性。</li>
+<li>通过对象直接量创建的对象都具<strong>同有一个原型对象</strong>，并可以通过<strong>Object.prototype</strong>获得对<strong>原型对象的引用</strong>。</li>
+<li>通过<strong>关键字new</strong>和<strong>构造函数调用</strong>创建的对象的原型就是<strong>构造函数的prototype属性</strong>的值。</li>
+</ul>
+<h4 id="6-1-4_Object-create()">6.1.4 Object.create()</h4><ul>
+<li>Object.create()：它创建一个新对象，其中第一个参数是这个对象的原型。第二个是可选参数，用以对对象的属性进行描述。</li>
+<li>Object.create()是一个静态函数，而不是提供给某个对象调用的方法。<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var o1 = Object.create(&#123;x:<span class="number">1</span>, y:<span class="number">2</span>&#125;);     <span class="comment">// Object.create()创建了一个新对象，并赋值给o1；o1继承了属性x和y；</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="6-2_属性的查询和设置">6.2 属性的查询和设置</h3><ul>
+<li>JS通过点(.)或方括号([ ])运算符来获取属性的值。</li>
+<li>运算符左侧：应当是一个表达式，它返回一个对象。</li>
+<li>运算符右侧：<ul>
+<li>点(.)：右侧必须是一个以属性名称命名的简单的标识符；</li>
+<li>方括号([])：方括号内部必须是一个计算结果为字符串的表达式；</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> author</span> = book.author;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> name</span> = book.surname;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> title</span> = book[<span class="string">"main title"</span>];</span><br></pre></td></tr></table></figure>
+<h4 id="6-2-1_作为关联数组的对象">6.2.1 作为关联数组的对象</h4><ul>
+<li>object[“property”] =&gt; 关联数组：使用方括号和一个字符串，看起来很像数组，只是这个数组元素是通过字符串索引而不是数字索引。关联数组也称做散列、映射或字典；JS对象都是关联数组；<ul>
+<li>当通过点运算符访问对象的属性时，属性名用一个标识符来表示；标识符必须直接出现在JS程序中，它们不是数据类型，因此程序无法修改它们。</li>
+<li>当通过方括号访问对象的属性时，属性名通过字符串来表示；字符串是数据类型，在程序运行时可以修改和创建它们。<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var addr = <span class="string">""</span>;</span><br><span class="line">for<span class="comment">(i = 0; i &lt; 4; i++)</span>&#123;</span><br><span class="line">    addr += customer[<span class="string">"address"</span> + i] + <span class="string">'\n'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>由于在写程序的时候不知道属性名称，因此无法通过点运算符来访问对象的属性；但可以使用方括号运算符，因为它使用字符串值（<strong>字符串值是动态的</strong>，可以在程序执行时更改），而不是标识符（<strong>标识符是静态的</strong>，必须写死在程序中），作为索引对属性进行访问。</p>
+<h4 id="6-2-2_属性的继承">6.2.2 属性的继承</h4><p>JS对象具有“自有属性”（own property），也有一些属性是从原型对象继承而来的。</p>
+<ul>
+<li>假设要查询对象o的属性x，如果o中不存在x，那么将会继续在o的原型对象中查询属性x；如果原型中也没有x，但这个原型对象也有原型，那么继续在这个原型对象的原型上执行查询，直到找到x或查询到下一个原型是null的对象为止。</li>
+</ul>
+
       </div>
       <footer class="article-footer">
-        <a data-url="http://yoursite.com/2015/11/23/Hexo/" data-id="ciiil0ny4000p5kgi1ug60kp5" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://yoursite.com/2015/12/10/JavaScript-对象/" data-id="ciiil0ny0000j5kgi1cdz5s71" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
         
         
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
       </footer>
     </div>
@@ -166,16 +222,22 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/11/24/jQuery基础-Ajax/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/10/JavaScript-对象/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <p class="article-nav-title">
         
-          jQuery基础--Ajax
+          (no title)
         
       </p>
       <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
   
+  
+    <a href="/2015/12/03/Bootstrap插件/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">Bootstrap插件</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
   
 </nav>
 
