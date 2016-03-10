@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="翌子涵">
 <meta property="og:description" content="12AngularJS HTML DOMng-disabled指令12345&amp;lt;div ng-app ng-init=&quot;mySwitch=true&quot;&amp;gt;    &amp;lt;button ng-disabled=&quot;mySwitch&quot;&amp;gt;点我！&amp;lt;/button&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;input type=&quot;checkbox&quot; ng-model=&quot;mySwitch&quot;&amp;gt;">
 <meta property="og:image" content="http://yoursite.com/img/angularjs1.jpg">
-<meta property="og:updated_time" content="2016-03-10T07:39:44.921Z">
+<meta property="og:updated_time" content="2016-03-10T07:45:56.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS入门笔记《下》">
 <meta name="twitter:description" content="12AngularJS HTML DOMng-disabled指令12345&amp;lt;div ng-app ng-init=&quot;mySwitch=true&quot;&amp;gt;    &amp;lt;button ng-disabled=&quot;mySwitch&quot;&amp;gt;点我！&amp;lt;/button&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;input type=&quot;checkbox&quot; ng-model=&quot;mySwitch&quot;&amp;gt;">
@@ -135,7 +135,33 @@
 <p><strong>ng-app指令</strong>定义了AngularJS应用<br><strong>ng-controller指令</strong>定义了应用控制器<br><strong>ng-model指令</strong>绑定了两个input元素到模型的user对象<br><strong>formCtrl函数</strong>设置了master对象的初始值，并定义了reset()方法。<br><strong>reset()方法</strong>设置了user对象等于master对象<br><strong>ng-click指令</strong>调用了reset()方法，且在点击按钮是调用。</p>
 <hr>
 <h2 id="16AngularJS验证">16AngularJS验证</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">ng-app</span>=<span class="value">"myApp"</span> <span class="attribute">ng-controller</span>=<span class="value">"validateCtrl"</span> <span class="attribute">name</span>=<span class="value">"myForm"</span> <span class="attribute">novalidate</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>用户名：<span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"user"</span> <span class="attribute">ng-model</span>=<span class="value">"user"</span> <span class="attribute">required</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 用户修改过user表单&amp;&amp;内容是非法的 ==&gt;&gt; 显示错误信息--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color:red;"</span> <span class="attribute">ng-show</span>=<span class="value">"myForm.user.$dirty &amp;&amp; myForm.user.$invalid"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng-show</span>=<span class="value">"myForm.user.$error.required"</span>&gt;</span>用户名是必须的。<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>邮箱：<span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"email"</span> <span class="attribute">name</span>=<span class="value">"email"</span> <span class="attribute">ng-model</span>=<span class="value">"email"</span> <span class="attribute">required</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"color:red;"</span> <span class="attribute">ng-show</span>=<span class="value">"myForm.email.$dirty &amp;&amp; myForm.email.$invalid"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng-show</span>=<span class="value">"myForm.email.$error.required"</span>&gt;</span>用户名是必须的。<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span> <span class="attribute">ng-show</span>=<span class="value">"myForm.email.$error.email"</span>&gt;</span>非法的邮箱。<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 用户修改过user表单&amp;&amp;字段非法 || 用户修改过email表单&amp;&amp;字段非法 ==&gt;&gt; 此时按钮都是disabled状态 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span>  <span class="attribute">ng-disabled</span>=<span class="value">"myForm.user.$dirty &amp;&amp; myForm.user.$invalid || myForm.email.$dirty &amp;&amp; myForm.email.$invalid"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">  <span class="keyword">var</span> app = angular.module(<span class="string">'myApp'</span>, []);</span><br><span class="line">  app.controller(<span class="string">'validateCtrl'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span></span>&#123;</span><br><span class="line">    $scope.user = <span class="string">'John Doe'</span>;</span><br><span class="line">    $scope.email = <span class="string">'join.doe@gmail.com'</span>;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>AngularJS <strong>ng-model指令</strong>用于绑定输入元素到模型中<br>模型对象有两个属性：<strong>user</strong>和<strong>email</strong><br>|   属性    |   描述    |<br>|   —-    |   —-    |<br>|   <code>$dirty</code>  |   表单有填写记录  |<br>|   <code>$valid</code>  |   字段内容合法的  |<br>|   <code>$invalid</code>|   字段内容是非法的    |<br>|   <code>$pristine</code>|    表单没有填写记录    |</p>
+<p>AngularJS <strong>ng-model指令</strong>用于绑定输入元素到模型中<br>模型对象有两个属性：<strong>user</strong>和<strong>email</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$dirty</code></td>
+<td>表单有填写记录</td>
+</tr>
+<tr>
+<td><code>$valid</code></td>
+<td>字段内容合法的</td>
+</tr>
+<tr>
+<td><code>$invalid</code></td>
+<td>字段内容是非法的</td>
+</tr>
+<tr>
+<td><code>$pristine</code></td>
+<td>表单没有填写记录</td>
+</tr>
+</tbody>
+</table>
 <hr>
 <h2 id="17_AngularJS_API">17 AngularJS API</h2><p>API：Application Programming Interface（应用程序接口）<br>AngularJS全局API用于执行常见任务的JS函数集合</p>
 <table>

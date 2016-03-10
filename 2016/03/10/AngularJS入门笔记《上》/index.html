@@ -24,7 +24,7 @@ AngularJS扩展了HTMLAngularJS通过ng-directives（指令）扩展了HTML
 ng-app 指令定义一个AngularJS应用程序
 ng-model 指令把元素值（">
 <meta property="og:image" content="http://yoursite.com/img/angularjs1.jpg">
-<meta property="og:updated_time" content="2016-03-10T07:32:55.043Z">
+<meta property="og:updated_time" content="2016-03-10T07:47:04.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS入门笔记(上)">
 <meta name="twitter:description" content="01AngularJS简介AngularJS是一个JavaScript框架。它通过&amp;lt;script&amp;gt;标签添加到HTML页面。AngularJS通过指令扩展HTML，且通过表达式绑定数据到HTML。
@@ -184,7 +184,37 @@ ng-model 指令把元素值（">
 <h4 id="控制器方法"><strong>控制器方法</strong></h4><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"personCtrl"</span>&gt;</span><br><span class="line">    名: &lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"firstName"</span>&gt;&lt;br&gt;</span><br><span class="line">    姓: &lt;input type=<span class="string">"text"</span> ng-model=<span class="string">"lastName"</span>&gt;&lt;br&gt;</span><br><span class="line">    &lt;br&gt;</span><br><span class="line">    姓名: &#123;&#123;fullName()&#125;&#125; &lt;!-- 调用控制器的方法 --&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var app = angular.module(<span class="string">'myApp'</span>, []);</span><br><span class="line">    app.controller(<span class="string">'personCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</span><br><span class="line">        <span class="variable">$scope</span>.firstName = <span class="string">"John"</span>;</span><br><span class="line">        <span class="variable">$scope</span>.lastName = <span class="string">"Doe"</span>;</span><br><span class="line">        // 控制器方法</span><br><span class="line">        <span class="variable">$scope</span>.fullName = function() &#123;</span><br><span class="line">            return <span class="variable">$scope</span>.firstName + <span class="string">" "</span> + <span class="variable">$scope</span>.lastName;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="07过滤器">07过滤器</h2><p>过滤器可以使用一个管道字符（|）添加到表达式和指令中，更改视图的显示</p>
-<h4 id="AngularJS过滤器">AngularJS过滤器</h4><p>过滤器可用于转换数据：<br>| 过滤器    | 描述  |<br>|———- |—–  |<br>|currency   | 格式化数字为货币格式。|<br>|filter     | 从数组项中选择一个子集 |<br>|lowercase  | 格式化字符串为小写 |<br>|orderBy    | 根据某个表达式排列数组 |<br>|uppercase  | 格式化字符串为大写 |</p>
+<h4 id="AngularJS过滤器">AngularJS过滤器</h4><p>过滤器可用于转换数据：</p>
+<table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>currency</td>
+<td>格式化数字为货币格式。</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>从数组项中选择一个子集</td>
+</tr>
+<tr>
+<td>lowercase</td>
+<td>格式化字符串为小写</td>
+</tr>
+<tr>
+<td>orderBy</td>
+<td>根据某个表达式排列数组</td>
+</tr>
+<tr>
+<td>uppercase</td>
+<td>格式化字符串为大写</td>
+</tr>
+</tbody>
+</table>
 <h4 id="表达式中添加过滤器"><strong>表达式中添加过滤器</strong></h4><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"personCtrl"</span>&gt;</span><br><span class="line">    &lt;p&gt;姓名为 <span class="expansion">&#123;&#123; lastName | uppercase &#125;&#125;</span>&lt;<span class="regexp">/p&gt;</span><br><span class="line">&lt;/div</span>&gt;</span><br></pre></td></tr></table></figure>
 <p><strong>uppercase</strong>过滤器将字符串格式化为大写</p>
 <h4 id="向指令添加过滤器"><strong>向指令添加过滤器</strong></h4><p>过滤器可以通过一个管道字符（|）和一个过滤器添加到指令中。<br><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-app</span>=<span class="value">"myApp"</span> <span class="attribute">ng-controller</span>=<span class="value">"namesCtrl"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ng-repeat</span>=<span class="value">"x in names | orderBy:'country'"</span>&gt;</span></span><br><span class="line">        </span><span class="expression">&#123;&#123; <span class="variable">x.name</span> + ', ' + <span class="variable">x.country</span> &#125;&#125;</span><span class="xml"></span><br><span class="line">      <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
