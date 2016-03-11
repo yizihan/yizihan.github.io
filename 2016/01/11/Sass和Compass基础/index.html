@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Sass和Compass基础 | 翌子涵</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Sass">
+  
+
+  <meta name="description" content="一、背景知识1.Sass是什么　　Sass可以简化你的Css工作流，并可以使你的Css的扩展和维护工作变的更加容易！例如，曾几时何，因为客户的需求的变更，你必须不断的通过查找和替换来更改一个像素值，或者，为了能够确定多栏布局中某一栏的宽度，你需要使用计算像素值软件才能搞定。　　Sass引入了一些新的概念如，变量，混合，嵌套和选择器继承。Sass 生成良好格式化的 CSS 代码，易于组织和维护。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sass和Compass基础">
+<meta property="og:url" content="http://yoursite.com/2016/01/11/Sass和Compass基础/index.html">
+<meta property="og:site_name" content="翌子涵">
+<meta property="og:description" content="一、背景知识1.Sass是什么　　Sass可以简化你的Css工作流，并可以使你的Css的扩展和维护工作变的更加容易！例如，曾几时何，因为客户的需求的变更，你必须不断的通过查找和替换来更改一个像素值，或者，为了能够确定多栏布局中某一栏的宽度，你需要使用计算像素值软件才能搞定。　　Sass引入了一些新的概念如，变量，混合，嵌套和选择器继承。Sass 生成良好格式化的 CSS 代码，易于组织和维护。">
+<meta property="og:image" content="http://yoursite.com/img/Sass.jpg">
+<meta property="og:image" content="http://yoursite.com/img/compass.png">
+<meta property="og:updated_time" content="2016-03-11T12:25:00.529Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sass和Compass基础">
+<meta name="twitter:description" content="一、背景知识1.Sass是什么　　Sass可以简化你的Css工作流，并可以使你的Css的扩展和维护工作变的更加容易！例如，曾几时何，因为客户的需求的变更，你必须不断的通过查找和替换来更改一个像素值，或者，为了能够确定多栏布局中某一栏的宽度，你需要使用计算像素值软件才能搞定。　　Sass引入了一些新的概念如，变量，混合，嵌套和选择器继承。Sass 生成良好格式化的 CSS 代码，易于组织和维护。">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/博客/">博客</a></li></ul></li></ul>
+                  
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/contact/index.html">index.contact</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                
+                  <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/技术/博客/">博客</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-Sass和Compass基础" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      Sass和Compass基础
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/2016/01/11/Sass和Compass基础/" class="article-date">
+  <time datetime="2016-01-11T12:14:32.000Z" itemprop="datePublished">2016-01-11</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="/img/Sass.jpg" alt=""></p>
+<h2 id="一、背景知识">一、背景知识</h2><h4 id="1-Sass是什么">1.Sass是什么</h4><p>　　Sass可以简化你的Css工作流，并可以使你的Css的扩展和维护工作变的更加容易！例如，曾几时何，因为客户的需求的变更，你必须不断的通过查找和替换来更改一个像素值，或者，为了能够确定多栏布局中某一栏的宽度，你需要使用计算像素值软件才能搞定。<br>　　Sass引入了一些新的概念如，<strong>变量</strong>，<strong>混合</strong>，<strong>嵌套</strong>和<strong>选择器继承</strong>。Sass 生成良好格式化的 CSS 代码，易于组织和维护。<br>　　SASS是对CSS3（层叠样式表）的语法的一种扩充，它可以使用巢状、混入、选择子继承等功能，可以更有效有弹性的写出Stylesheet。<br>　　Sass最后还是会<strong>编译出合法的CSS</strong>让浏览可以使用，也就是说它本身的语法并不太容易让浏览器识别（虽然它和CSS的语法非常的像，几乎一样），因为它不是标准的CSS格式，在它的语法内部可以使用<strong>动态变量</strong>等，所以它更像一种极简单的<strong>动态语言</strong>。</p>
+<h4 id="2-Compass是什么?">2.Compass是什么?</h4><p><img src="/img/compass.png" alt=""><br>　　Compass由SASS的核心团队成员Chris Eppstein创建，是一个非常丰富的<strong>样式框架</strong>，包括大量定义好的mixin，函数，以及对SASS的扩展。</p>
+<hr>
+<h2 id="二、Sass和Compass安装">二、Sass和Compass安装</h2><p>SASS是Ruby语言写的，但是两者的语法没有关系。不懂Ruby，照样使用。只是必须先安装Ruby，然后再安装SASS。<br>假定你已经安装好了Ruby，接着在命令行输入下面的命令：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>gem安装Sass</span><br><span class="line">  C:\Users\DELL&gt;gem install sass</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>查看Sass版本</span><br><span class="line">  C:\Users\DELL&gt;sass -v</span><br><span class="line">  Sass <span class="number">3.4</span><span class="number">.13</span> (Selective Steve)</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>编译Sass文件</span><br><span class="line">  sass main.scss main css</span><br><span class="line">  <span class="comment">// 一般很少使用sass命令,一般都是用Compass命令;</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>gem安装Compass</span><br><span class="line">  C:\Users\DELL&gt;gem install compass</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>查看Compass版本</span><br><span class="line">  C:\Users\DELL&gt;compass -v</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">6</span>.Compass搭建项目</span><br><span class="line">  C:\Users\DELL\compass create sass</span><br><span class="line">  <span class="comment">// 结果:↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ 5   directory sass/</span></span><br><span class="line">  directory sass/sass/                  <span class="comment">// sass文件所在目录;</span></span><br><span class="line">  directory sass/stylesheets/           <span class="comment">// css文件所在目录;</span></span><br><span class="line">     create sass/config<span class="class">.rb</span>              <span class="comment">// 项目配置文件;</span></span><br><span class="line">     create sass/sass/screen<span class="class">.scss</span>       <span class="comment">// 主要针对屏幕的sass文件;</span></span><br><span class="line">     create sass/sass/print<span class="class">.scss</span>        <span class="comment">// 主要针对打印设备;</span></span><br><span class="line">     create sass/sass/ie<span class="class">.scss</span>           <span class="comment">// 主要针对IE浏览器;</span></span><br><span class="line">      write sass/stylesheets/ie<span class="class">.css</span></span><br><span class="line">      write sass/stylesheets/print<span class="class">.css</span></span><br><span class="line">      write sass/stylesheets/screen<span class="class">.css</span> <span class="comment">// scss文件编译后对应的css文件;最终将引入到HTML中的文件;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// You may now add and edit sass stylesheets in the sass subdirectory of your project.</span></span><br><span class="line">  <span class="comment">// 你现在可以在sass文件的子文件中(screen.scss/print.scss/ie.scss)添加和编辑项目的样式表;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// Sass files beginning with an underscore are called partials and won't be compiled to CSS, but they can be imported into other sass stylesheets.</span></span><br><span class="line">  <span class="comment">// Sass文件以"_"开头的叫做局部文件,不会被编译成CSS;但它们可以被引入到其他Sass文件中;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// You can configure your project by editing the config.rb configuration file.</span></span><br><span class="line">  <span class="comment">// 你可以通过编辑config.rb配置文件来配置项目信息; </span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// You must compile your sass stylesheets into CSS when they change.</span></span><br><span class="line">  <span class="comment">// 当Sass文件被修改后,必须要编译Sass文件到CSS;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 1. To compile on demand:                   // 直接编译;           </span></span><br><span class="line">  <span class="comment">// $ compass compile [path/to/project]</span></span><br><span class="line">  <span class="comment">// 2. To monitor your project for changes and automatically recompile:  </span></span><br><span class="line">  <span class="comment">// $ compass watch [path/to/project]          // 监听项目变化并且自动编译; </span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// To import your new stylesheets add the following lines of HTML (or equivalent) to your webpage:</span></span><br><span class="line">  <span class="comment">// &lt;head&gt;</span></span><br><span class="line">  <span class="comment">//   &lt;link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /&gt;</span></span><br><span class="line">  <span class="comment">//   &lt;link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /&gt;</span></span><br><span class="line">  <span class="comment">//   &lt;!--[if IE]&gt;</span></span><br><span class="line">  <span class="comment">//       &lt;link href="/stylesheets/ie.css" media="screen, projection" rel="stylesheet" type="text/css" /&gt;</span></span><br><span class="line">  <span class="comment">//   &lt;![endif]--&gt;</span></span><br><span class="line">  <span class="comment">// &lt;/head&gt;</span></span><br><span class="line">  <span class="comment">// 将编译后的文件引入到HTML页面中;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="三、Sass语法基础">三、Sass语法基础</h2><h4 id="1-scss和sass文件转换">1.scss和sass文件转换</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sass-convert main<span class="class">.scss</span> main<span class="class">.sass</span></span><br><span class="line"><span class="comment">// 将scss文件转换为sass文件;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-开启监听编译">2.开启监听编译</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">C:</span>\Users\DELL&gt;cd sass</span><br><span class="line"><span class="comment">// 进入项目文件夹;</span></span><br><span class="line"><span class="string">C:</span>\Users\DELL\sass&gt;compass watch</span><br><span class="line">&gt;&gt;&gt; Compass is watching <span class="keyword">for</span> changes. Press Ctrl-C to Stop.</span><br><span class="line"><span class="comment">// 开启监听并自动编译;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3-变量">3.变量</h4><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Sass通过<span class="string">"$"</span>声明变量;</span><br><span class="line">&gt;<span class="number">1</span>.声明变量</span><br><span class="line">  <span class="variable">$headline-ff</span>:<span class="string">"宋体"</span>,Arial,sans-serif;</span><br><span class="line">  <span class="variable">$main-sec-ff</span>:Arial,sans-serif;</span><br><span class="line">&gt;<span class="number">2</span>.引用变量</span><br><span class="line">  .headline &#123;</span><br><span class="line">    font-family: <span class="variable">$headline-ff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  .main-sec &#123;</span><br><span class="line">    font-family: <span class="variable">$main-sec-ff</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-@import引入文件">4.@import引入文件</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.新建局部文件</span><br><span class="line">    _variables<span class="class">.scss</span></span><br><span class="line">    <span class="comment">// 以"_"开头的局部文件,不会被编译到css;作为被引入文件使用;</span></span><br><span class="line">2.<span class="at_rule">@<span class="keyword">import</span>引入文件</span><br><span class="line">    @improt <span class="string">"variables"</span>;</span></span><br><span class="line">    <span class="comment">// 基于Sass的既定规则:</span></span><br><span class="line">    <span class="comment">// 1.没有文件后缀名的时候,sass会添加.scss或.sass的后缀;</span></span><br><span class="line">    <span class="comment">// 2.用同一目录下,局部文件和非局部文件不能重名;</span></span><br><span class="line">3.使用css原生<span class="at_rule">@<span class="keyword">import</span>的既定规则:</span><br><span class="line">   <span class="preprocessor"> 1.</span>当@<span class="keyword">import</span>后边跟的文件名是以<span class="string">".css"</span>结尾的时候;</span></span><br><span class="line">    2.当<span class="at_rule">@<span class="keyword">import</span>后边跟的是<span class="string">"http://"</span>开头的字符串的时候;</span></span><br><span class="line">    3.当<span class="at_rule">@<span class="keyword">import</span>后边跟的是一个<span class="function">url</span>()函数的时候</span><br><span class="line">   <span class="preprocessor"> 4.</span>当@<span class="keyword">import</span>后边带有<span class="keyword">media</span><span class="preprocessor"> queries</span>的时候;</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-注释">5.注释</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="number">1.</span>以<span class="string">"/**/"</span>注释的内容最后被输出到了对应的css文件中;</span><br><span class="line">&gt;<span class="number">2.</span>以<span class="string">"//"</span>注释的内容则没有输出到对应的css文件;</span><br></pre></td></tr></table></figure>
+<h4 id="6-类嵌套语法">6.类嵌套语法</h4><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.main-sec&#123;</span><br><span class="line">  font-family: <span class="variable">$main-sec-ff</span>;</span><br><span class="line">  .headline &#123;</span><br><span class="line">    font-family: <span class="variable">$main-sec-ff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="7-属性嵌套语法">7.属性嵌套语法</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.headline</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">font</span>:<span class="value">&#123;</span><br><span class="line">    family:$main-sec-ff</span></span>;</span><br><span class="line">    <span class="rule"><span class="attribute">size</span>:<span class="value"><span class="number">16px</span></span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="8-父类选择器(自身调用)">8.父类选择器(自身调用)</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">a</span> &#123;</span><br><span class="line">  <span class="keyword">&amp;</span><span class="pseudo">:hover</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>:red;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="四、Sass语法进阶">四、Sass语法进阶</h2><h4 id="1-变量操作">1.变量操作</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;<span class="number">1.</span>直接操作变量,即变量表达式;</span><br><span class="line">&gt;<span class="number">2.</span>通过函数;</span><br><span class="line">  &gt;&gt;<span class="number">1.</span>跟代码块无关的函数,多是自己内置函数,称为functions;</span><br><span class="line">  &gt;&gt;<span class="number">2.</span>可重用的代码块:称为mixin;</span><br><span class="line">    &gt;&gt;&gt;<span class="number">1.</span>@include;                <span class="comment">// 以复制/拷贝的方式存在;</span></span><br><span class="line">    &gt;&gt;&gt;<span class="number">2.</span>@extend;                 <span class="comment">// 以组合声明的方式存在;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2-颜色值转换;">2.颜色值转换;</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">Sass</span>:</span><br><span class="line">  <span class="attribute">color</span>:<span class="function">hsl</span>(<span class="number">270</span>,<span class="number">100%</span>,<span class="number">50%</span>);</span><br><span class="line"><span class="attribute">Css</span>:</span><br><span class="line">  <span class="attribute">color</span>:<span class="hexcolor">#7f00ff</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="3-@mixin引用">3.@mixin引用</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Sass</span>:</span><br><span class="line">  @<span class="tag">mixin</span> <span class="tag">col-6</span> &#123;                   <span class="comment">// 声明col-6()函数;</span></span><br><span class="line">    <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="class">.webdemo-sec</span> &#123;</span><br><span class="line">    <span class="variable">@include</span> col-<span class="number">6</span>                 <span class="comment">// 通过@include引入@col-6()函数;并且可以引入多个;</span></span><br><span class="line">    &amp;:hover &#123;                      <span class="comment">// &amp;:表示父类选择器;</span></span><br><span class="line">      <span class="attribute">background-color</span>:<span class="hexcolor">#f5f5f5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">Css</span>:</span><br><span class="line">  <span class="class">.webdemo-sec</span> &#123;                   <span class="comment">// 继承了col-6()函数的属性值;</span></span><br><span class="line">    <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">float</span>:left;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="class">.webdemo-sec</span><span class="pseudo">:hover</span> &#123;             <span class="comment">// 通过"&amp;"调用到本身;</span></span><br><span class="line">    <span class="attribute">background-color</span>:<span class="hexcolor">#f5f5f5</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-@mixin包含参数引用;">4.@mixin包含参数引用;</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Sass<span class="value">:</span><br><span class="line">  @mixin <span class="function">col</span>(<span class="variable">$width</span>:<span class="number">50%</span>)&#123;           // 设置默认参数值;</span>不传参数时,属性值为默认;</span><br><span class="line">    <span class="attribute">width</span><span class="value">:<span class="variable">$width</span>;</span></span><br><span class="line">    <span class="attribute">float</span><span class="pseudo">:right</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="class">.webdemo-abc</span> &#123;</span><br><span class="line">    <span class="at_rule">@<span class="keyword">include</span><span class="preprocessor"> col</span>(<span class="number">60%</span>);</span>              <span class="comment">// 设置传参数;</span></span><br><span class="line">  &#125;</span><br><span class="line">Css<span class="value">:</span><br><span class="line">  .webdemo-abc &#123;</span><br><span class="line">    width:<span class="number">60%</span>;</span>                      <span class="comment">// 编译后的属性值;</span></span><br><span class="line">    <span class="attribute">float</span><span class="pseudo">:right</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5-@extend继承">5.@extend继承</h4><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt;1<span class="class">.extend</span>不可以继承选择器序列;</span><br><span class="line">&gt;2.使用%,用来构建只用来继承的选择器;</span><br><span class="line">  Sass<span class="value">:</span><br><span class="line">    .error &#123;</span><br><span class="line">      color:<span class="hexcolor">#f00</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    %error &#123;                          <span class="comment">// 构建只用来要继承的选择器;</span></span><br><span class="line">      <span class="attribute">background</span><span class="value">:<span class="hexcolor">#0f0</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class">.serious-error</span> &#123;</span><br><span class="line">      <span class="at_rule">@<span class="keyword">extend</span><span class="preprocessor"> .error</span>;</span></span><br><span class="line">      <span class="at_rule">@<span class="keyword">extend</span> %error;</span></span><br><span class="line">      <span class="attribute">border</span><span class="value">:<span class="number">1px</span> solid <span class="hexcolor">#f00</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">  Css<span class="value">:</span><br><span class="line">    .error, .serious-error &#123;          // 继承自.error;</span></span><br><span class="line">      <span class="attribute">color</span><span class="value">:<span class="hexcolor">#f00</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class">.serious-error</span> &#123;                  <span class="comment">// 继承自%serious-error;</span></span><br><span class="line">      <span class="attribute">background</span><span class="value">:<span class="hexcolor">#0f0</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class">.serious-error</span> &#123;                  <span class="comment">// 自己的属性;</span></span><br><span class="line">      <span class="attribute">border</span><span class="value">:<span class="number">1px</span> solid <span class="hexcolor">#f00</span>;</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="五、Sass高级语法">五、Sass高级语法</h2><h4 id="1-@media用法">1.@media用法</h4><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Sass中的@media与Css中的@media区别:</span></span><br><span class="line"><span class="comment">// 1.Sass中的media query可以内嵌在css规则中;</span></span><br><span class="line"><span class="comment">// 2.在生成css的时候,media query才会被提到样式的最高级;</span></span><br><span class="line"><span class="comment">// 3.好处:避免了重复书写选择器或者打乱样式表的流程;</span></span><br><span class="line">  Sass:</span><br><span class="line">    <span class="variable">@mixin</span> col-sm (<span class="variable">$width</span>:<span class="number">50</span><span class="variable">%)</span>&#123;</span><br><span class="line">      <span class="variable">@media</span> (<span class="keyword">min</span>-width:<span class="number">768</span>px)&#123;</span><br><span class="line">        width:<span class="variable">$width</span>;</span><br><span class="line">        <span class="keyword">float</span>:left;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    .webdemo-sec &#123;</span><br><span class="line">      <span class="variable">@include</span> col-sm();</span><br><span class="line">    &#125;</span><br><span class="line">  Css:</span><br><span class="line">    <span class="variable">@media</span> (<span class="keyword">min</span>-width:<span class="number">768</span>px)&#123;</span><br><span class="line">      .webdemo-sec &#123;</span><br><span class="line">        width:<span class="number">50</span><span class="variable">%;</span></span><br><span class="line">        <span class="keyword">float</span>:left;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-@at-root指令">2.@at-root指令</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 嵌套副作用:增加了样式修饰的权重;制造了样式位置的依赖;</span></span><br><span class="line">  <span class="tag">Sass</span>:</span><br><span class="line">    <span class="class">.main-sec</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">      <span class="variable">@at-root</span> &#123;                        <span class="comment">// 在嵌套的时候使用@at-root指令;</span></span><br><span class="line">        <span class="class">.main-sec-headline</span> &#123;            <span class="comment">// 指定被嵌套的内容输出到样式表的顶层;</span></span><br><span class="line">          <span class="attribute">font-size</span>:<span class="number">16px</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        .main-sec-detail &#123;</span><br><span class="line">          <span class="attribute">font-size</span>:<span class="number">14px</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  <span class="tag">Css</span>:</span><br><span class="line">    <span class="class">.main-sec</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>:<span class="number">12px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class">.main-sec-headline</span> &#123;　　　　　　　　　<span class="comment">// 编译后成功输出到样式表的顶层; </span></span><br><span class="line">      <span class="attribute">font-size</span>:<span class="number">16px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class">.main-sec-detail</span> &#123;</span><br><span class="line">      <span class="attribute">font-size</span>:<span class="number">14px</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-if操作符">3.if操作符</h4><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">@mixin col-sa (<span class="variable">$width</span>:<span class="number">50</span>%)&#123;</span><br><span class="line">      // 使用type-of()方法:检测<span class="variable">$width</span>是否是数值类型;</span><br><span class="line">      @if type-of(<span class="variable">$width</span>) != number &#123;</span><br><span class="line">          // #&#123;&#125;:可以引用Sass的变量;--Ruby语法;</span><br><span class="line">          // @error:表示错误信息;</span><br><span class="line">          @error <span class="string">"$width必须是一个数值类型,你输入的width是:#&#123;$width&#125;."</span>;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      // 使用unitless()方法:判断当前的数值是否跟有单位;</span><br><span class="line">      // 前置not表示否定,双重否定表示肯定;</span><br><span class="line">      @if not unitless(<span class="variable">$width</span>)&#123;             // 判断数值有单位;</span><br><span class="line">          @if unit(<span class="variable">$width</span>) != <span class="string">"%"</span> &#123;         // 如果单位不是%;</span><br><span class="line">              @error <span class="string">"$width必须是一个数值类型,你输入的width是:#&#123;$width&#125;."</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125; @else &#123;                             // 判断数值没有单位;</span><br><span class="line">          @warn <span class="string">"$width必须是一个数值类型,你输入的width是:#&#123;$width&#125;."</span>;</span><br><span class="line">          <span class="variable">$width</span>:(percentage(<span class="variable">$width</span>)/<span class="number">100</span>);  // 换算成带%单位的数值;</span><br><span class="line">      &#125;</span><br><span class="line">      @media (min-width:<span class="number">768</span>px)&#123;</span><br><span class="line">          width:<span class="variable">$width</span>;</span><br><span class="line">          float:left;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-Sass的输出格式">4.Sass的输出格式</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在config.rb配置文件里;</span></span><br><span class="line">  &gt;<span class="number">1.</span>output_style = :expanded <span class="keyword">or</span> :nested <span class="keyword">or</span> :compact <span class="keyword">or</span> :compressed</span><br><span class="line">    &gt;&gt;<span class="number">0.</span>:expanded   =&gt; 编译后的文件是展开的;</span><br><span class="line">    &gt;&gt;<span class="number">1.</span>:nested     =&gt; 根据嵌套,在输出的时候代码缩进;</span><br><span class="line">    &gt;&gt;<span class="number">2.</span>:compact    =&gt; 将所有的属性汇总到一行;选择器之间的关系更清晰;</span><br><span class="line">    &gt;&gt;<span class="number">3.</span>:compressed =&gt; 将所有的代码压缩以占用最小的空间;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://yoursite.com/2016/01/11/Sass和Compass基础/" data-id="cilnocu0j002ig0git36yur73" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Sass/">Sass</a></li></ul>
+
+      </footer>
+    </div>
+  </article>
+  
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/yizihan/yizihan.github.io" target="_blank"><i class="icon fa fa-github"></i></a></li>
+      
+        <li><a class="social-tooltip" title="weibo" href="http://weibo.com/5328863999/profile?topnav=1&wvr=6" target="_blank"><i class="icon fa fa-weibo"></i></a></li>
+      
+    </ul>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/10/AngularJS入门笔记《上》/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
+        
+          AngularJS入门笔记(上)
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
+  
+    <a href="/2015/12/23/前端面试题-理论/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">前端面试题--理论</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+  
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《下》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记《下》" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《下》/" class="title">AngularJS入门笔记《下》</a></p>
+              <p class="item-date"><time datetime="2016-03-10T07:33:16.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《上》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记(上)" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《上》/" class="title">AngularJS入门笔记(上)</a></p>
+              <p class="item-date"><time datetime="2016-03-10T06:58:23.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/11/Sass和Compass基础/" class="thumbnail">
+  
+    <span style="background-image:url(/img/Sass.jpg
+)" alt="Sass和Compass基础" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/01/11/Sass和Compass基础/" class="title">Sass和Compass基础</a></p>
+              <p class="item-date"><time datetime="2016-01-11T12:14:32.000Z" itemprop="datePublished">2016-01-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/12/23/前端面试题-理论/" class="thumbnail">
+  
+    <span style="background-image:url(/img/mianshiti.png
+)" alt="前端面试题--理论" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2015/12/23/前端面试题-理论/" class="title">前端面试题--理论</a></p>
+              <p class="item-date"><time datetime="2015-12-23T08:50:47.000Z" itemprop="datePublished">2015-12-23</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/12/10/JavaScript-对象/" class="thumbnail">
+  
+    <span style="background-image:url(/img/js-object.jpg
+)" alt="JavaScript-对象" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2015/12/10/JavaScript-对象/" class="title">JavaScript-对象</a></p>
+              <p class="item-date"><time datetime="2015-12-10T02:29:23.000Z" itemprop="datePublished">2015-12-10</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">9</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 20px;">AngularJS</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2016 yizihan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

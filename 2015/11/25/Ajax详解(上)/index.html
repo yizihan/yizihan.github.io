@@ -220,7 +220,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
 <h2 id="七、客户端例子">七、客户端例子</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发送GET请求</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"search"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 发送Ajax查询请求</span></span><br><span class="line">  <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  request.open(<span class="string">"GET"</span>,<span class="string">"service.php?number="</span> + <span class="built_in">document</span>.getElementByID(<span class="string">"keyword"</span>).value);</span><br><span class="line">  request.send();</span><br><span class="line">  <span class="comment">// 获取服务器响应</span></span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(request.status === <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="comment">// 获取响应信息文本</span></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"searchResult"</span>).innerHTML = request.responseText;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        alert(<span class="string">"发生错误："</span> + request.status);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送POST请求</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"save"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 发送Ajax查询请求</span></span><br><span class="line">  <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  request.open(<span class="string">"POST"</span>,<span class="string">"service.php"</span>);</span><br><span class="line">  <span class="comment">// 构造参数</span></span><br><span class="line">  <span class="keyword">var</span> data = <span class="string">"name="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"staffName"</span>).value</span><br><span class="line">           + <span class="string">"number="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"staffNumber"</span>).value</span><br><span class="line">           + <span class="string">"&amp;sex="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"staffSex"</span>).value</span><br><span class="line">           + <span class="string">"&amp;job="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"staffJob"</span>).value;</span><br><span class="line">  <span class="comment">// 指定一个HTTP请求的头部，它应该包含在通过后续send()调用而发布的请求中</span></span><br><span class="line">  request.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">  <span class="comment">// 传入参数</span></span><br><span class="line">  request.send(data);</span><br><span class="line">  <span class="comment">// 获取服务器响应</span></span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(request.status === <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="comment">// 获取响应信息文本</span></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"searchResult"</span>).innerHTML = request.responseText;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        alert(<span class="string">"发生错误："</span> + request.status);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://yoursite.com/2015/11/25/Ajax详解(上)/" data-id="cillyjsfz0000ucgib31d5xrq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://yoursite.com/2015/11/25/Ajax详解(上)/" data-id="cilno485m0000g0gixchvjjmy" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
@@ -321,6 +321,26 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
             
             <div class="item-thumbnail">
               
+<a href="/2016/01/11/Sass和Compass基础/" class="thumbnail">
+  
+    <span style="background-image:url(/img/Sass.jpg
+)" alt="Sass和Compass基础" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/01/11/Sass和Compass基础/" class="title">Sass和Compass基础</a></p>
+              <p class="item-date"><time datetime="2016-01-11T12:14:32.000Z" itemprop="datePublished">2016-01-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
 <a href="/2015/12/23/前端面试题-理论/" class="thumbnail">
   
     <span style="background-image:url(/img/mianshiti.png
@@ -357,26 +377,6 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2015/12/03/Bootstrap插件/" class="thumbnail">
-  
-    <span style="background-image:url(/img/bootstrap.png
-)" alt="Bootstrap插件" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-              <p class="item-title"><a href="/2015/12/03/Bootstrap插件/" class="title">Bootstrap插件</a></p>
-              <p class="item-date"><time datetime="2015-12-03T09:52:06.000Z" itemprop="datePublished">2015-12-03</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -386,7 +386,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">8</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">9</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -396,7 +396,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -406,7 +406,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -416,7 +416,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
   <div class="widget-wrap widget-float">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 20px;">AngularJS</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 20px;">AngularJS</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
