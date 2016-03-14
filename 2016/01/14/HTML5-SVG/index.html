@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTML5--SVG | 翌子涵</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="HTML5,SVG">
+  
+
+  <meta name="description" content="一、SVG概述SVG是Scalable Vector Graphics的缩写，即缩放式矢量图形；
+优点：
+使用编辑器即可编辑图形
+基于XML、SVG的图形可以被很容易的搜索，脚本化和压缩
+缩放不影响图形质量
+支持随意打印成需要的尺寸
+SVG开源标准
+
+缺点：
+比正常格式图片体积大
+即使小图片也可能很大
+
+
+二、SVG绘制1.SVG绘制圆形–circle
+circle:绘制SVG圆形标签
+cx/cy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5--SVG">
+<meta property="og:url" content="http://yoursite.com/2016/01/14/HTML5-SVG/index.html">
+<meta property="og:site_name" content="翌子涵">
+<meta property="og:description" content="一、SVG概述SVG是Scalable Vector Graphics的缩写，即缩放式矢量图形；
+优点：
+使用编辑器即可编辑图形
+基于XML、SVG的图形可以被很容易的搜索，脚本化和压缩
+缩放不影响图形质量
+支持随意打印成需要的尺寸
+SVG开源标准
+
+缺点：
+比正常格式图片体积大
+即使小图片也可能很大
+
+
+二、SVG绘制1.SVG绘制圆形–circle
+circle:绘制SVG圆形标签
+cx/cy">
+<meta property="og:image" content="http://yoursite.com/img/svg-cover.gif">
+<meta property="og:image" content="http://yoursite.com/img/svg-01.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-02.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-03.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-04.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-05.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-06.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-07.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-08.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-09.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-10.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-11.png">
+<meta property="og:image" content="http://yoursite.com/img/svg-12.png">
+<meta property="og:updated_time" content="2016-03-14T08:01:05.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5--SVG">
+<meta name="twitter:description" content="一、SVG概述SVG是Scalable Vector Graphics的缩写，即缩放式矢量图形；
+优点：
+使用编辑器即可编辑图形
+基于XML、SVG的图形可以被很容易的搜索，脚本化和压缩
+缩放不影响图形质量
+支持随意打印成需要的尺寸
+SVG开源标准
+
+缺点：
+比正常格式图片体积大
+即使小图片也可能很大
+
+
+二、SVG绘制1.SVG绘制圆形–circle
+circle:绘制SVG圆形标签
+cx/cy">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/博客/">博客</a></li></ul></li></ul>
+                  
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/contact/index.html">index.contact</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                
+                  <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/技术/博客/">博客</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-HTML5-SVG" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5--SVG
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/2016/01/14/HTML5-SVG/" class="article-date">
+  <time datetime="2016-01-14T07:26:06.000Z" itemprop="datePublished">2016-01-14</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <h2 id=""><img src="/img/svg-cover.gif" alt=""></h2><h2 id="一、SVG概述">一、SVG概述</h2><p>SVG是Scalable Vector Graphics的缩写，即缩放式矢量图形；</p>
+<h4 id="优点：">优点：</h4><ol>
+<li>使用编辑器即可编辑图形</li>
+<li>基于XML、SVG的图形可以被很容易的搜索，脚本化和压缩</li>
+<li>缩放不影响图形质量</li>
+<li>支持随意打印成需要的尺寸</li>
+<li>SVG开源标准</li>
+</ol>
+<h4 id="缺点：">缺点：</h4><ol>
+<li>比正常格式图片体积大</li>
+<li>即使小图片也可能很大</li>
+</ol>
+<hr>
+<h2 id="二、SVG绘制">二、SVG绘制</h2><h4 id="1-SVG绘制圆形–circle">1.SVG绘制圆形–circle</h4><ul>
+<li>circle:绘制SVG圆形标签</li>
+<li>cx/cy:定义圆形中心点</li>
+<li>r:定义圆形半径</li>
+<li>stroke:定义描边颜色</li>
+<li>stroke-width:定义描边宽度</li>
+<li>fill:定义内填充颜色</li>
+</ul>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="variable">width</span>=<span class="string">"100"</span> <span class="variable">height</span>=<span class="string">"100"</span>&gt;</span><br><span class="line">    &lt;circle cx=<span class="string">"50"</span> cy=<span class="string">"50"</span> r=<span class="string">"45"</span> <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> <span class="built_in">fill</span>=<span class="string">"#ff5"</span> /&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-01.png" alt=""></p>
+<h4 id="2-SVG绘制矩形和圆角矩形–rect">2.SVG绘制矩形和圆角矩形–rect</h4><ol>
+<li>rect：绘制矩形标签</li>
+<li>x：矩形的左侧位置，定义矩形到<code>&lt;svg&gt;</code>左侧的距离是Xpx；</li>
+<li>y：矩形的顶端位置</li>
+<li>rx/ry：圆角半径</li>
+<li><p>style：<br>1.fill：填充颜色<br>2.fill-opacity：填充颜色透明度<br>3.stroke：描边颜色<br>4.stroke-width：描边宽度<br>5.stroke-opacity：描边透明度</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> &lt;svg <span class="variable">width</span>=<span class="string">"500"</span> <span class="variable">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">        &lt;<span class="built_in">rect</span> x=<span class="string">"10"</span> y=<span class="string">"10"</span> <span class="variable">width</span>=<span class="string">"300"</span> <span class="variable">height</span>=<span class="string">"150"</span> style=<span class="string">"fill:#ccc; stroke:orange; stroke-width:5px;"</span> /&gt;</span><br><span class="line">        &lt;<span class="built_in">rect</span> x=<span class="string">"10"</span> y=<span class="string">"210"</span> rx=<span class="string">"50"</span> ry=<span class="string">"100"</span> <span class="variable">width</span>=<span class="string">"300"</span> <span class="variable">height</span>=<span class="string">"150"</span> style=<span class="string">"fill:#ccc; stroke:orange; stroke-width:5px; stroke-opacity:.5; fill-opacity:.9;"</span>  /&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/svg-02.png" alt=""></p>
+</li>
+</ol>
+<h4 id="3-SVG绘制椭圆–ellipse">3.SVG绘制椭圆–ellipse</h4><ol>
+<li>ellipse：绘制椭圆标签</li>
+<li>cx：定义椭圆中心的X坐标</li>
+<li>cy：定义椭圆中心的Y坐标</li>
+<li>rx：定义椭圆的水平半径</li>
+<li>ry：定义椭圆的垂直半径</li>
+</ol>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="variable">width</span>=<span class="string">"500"</span> <span class="variable">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">    &lt;<span class="built_in">ellipse</span> cx=<span class="string">"150"</span> cy=<span class="string">"100"</span> rx=<span class="string">"90"</span> ry=<span class="string">"50"</span> <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"5"</span> <span class="built_in">fill</span>=<span class="string">"#000"</span> <span class="built_in">fill</span>-opacity=<span class="string">".5"</span> /&gt;</span><br><span class="line">    &lt;<span class="built_in">text</span> x=<span class="string">"110"</span> y=<span class="string">"30"</span> font-<span class="built_in">size</span>=<span class="string">"24"</span> font-weight=<span class="string">"bold"</span>&gt;SVG椭圆&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-03.png" alt=""></p>
+<h4 id="4-SVG绘制直线–line">4.SVG绘制直线–line</h4><ol>
+<li>line：绘制直线</li>
+<li>x1：直线起点X坐标</li>
+<li>y1：直线起点y坐标</li>
+<li>x2：直线终点x坐标</li>
+<li>y2：直线终点y坐标</li>
+</ol>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="variable">width</span>=<span class="string">"500"</span> <span class="variable">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">    &lt;<span class="built_in">line</span> x1=<span class="string">"5"</span> y1=<span class="string">"5"</span> x2=<span class="string">"250"</span> y2=<span class="string">"200"</span> style=<span class="string">"stroke:rgba(255, 0, 0, .5); stroke-width:5px;"</span> /&gt;</span><br><span class="line">    &lt;<span class="built_in">text</span> x=<span class="string">"120"</span> y=<span class="string">"50"</span> font-<span class="built_in">size</span>=<span class="string">"24"</span> font-weight=<span class="string">"bold"</span>&gt;SVG直线&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-04.png" alt=""></p>
+<h4 id="5-SVG绘制多边形–polygon">5.SVG绘制多边形–polygon</h4><ol>
+<li>polygon：绘制多边形标签</li>
+<li>points：定义多边形每个顶点的X坐标和Y坐标</li>
+</ol>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="variable">width</span>=<span class="string">"500"</span> <span class="variable">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">    &lt;polygon points=<span class="string">"150, 75 258, 137.5 258, 262.5 150, 325 42, 262.6 42, 137.5"</span> <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"5"</span> <span class="built_in">stroke</span>-opacity=<span class="string">".5"</span> <span class="built_in">fill</span>=<span class="string">"rgba(250, 0, 0, .3)"</span> /&gt;</span><br><span class="line">    &lt;<span class="built_in">text</span> x=<span class="string">"95"</span> y=<span class="string">"50"</span> font-<span class="built_in">size</span>=<span class="string">"24"</span> font-weight=<span class="string">"bold"</span>&gt;SVG多边形&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-05.png" alt=""></p>
+<h4 id="6-SVG绘制折线–polyline">6.SVG绘制折线–polyline</h4><ol>
+<li>polyline：绘制折线标签</li>
+<li>points：定义折线的各个转折点的x坐标和y坐标</li>
+</ol>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="variable">width</span>=<span class="string">"500"</span> <span class="variable">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">    &lt;polyline points=<span class="string">"150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5"</span> <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"5"</span> <span class="built_in">fill</span>=<span class="string">"none"</span>/&gt;</span><br><span class="line">    &lt;<span class="built_in">text</span> x=<span class="string">"103"</span> y=<span class="string">"50"</span> font-<span class="built_in">size</span>=<span class="string">"24"</span> font-weight=<span class="string">"bold"</span>&gt;SVG折线&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-06.png" alt=""></p>
+<h4 id="7-SVG绘制路径–path">7.SVG绘制路径–path</h4><p>路径绘制是SVG图形绘制中比较强大的元素</p>
+<ol>
+<li>path：绘制路径标签</li>
+<li>相关d属性的说明：<br>1.M = Moveto：移动到坐标<br>2.L = Lineto：绘制直线到坐标<br>3.H = Horizontal Lineto：绘制水平直线到坐标<br>4.V = Vertical lineto：绘制垂直直线到坐标<br>5.C = Curveto：绘制曲线到坐标<br>6.S = Smooth curveto：绘制光滑曲线到坐标<br>7.Q = Quadratic Bezier curve：绘制贝塞尔曲线到坐标<br>8.T = smooth quadratic Bezier curveto：绘制光滑贝塞尔曲线到坐标<br>9.A = elliptical Arc：绘制椭圆弧到坐标<br>10.Z = closepath：闭合路径</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">svg</span> <span class="attribute">width</span>=<span class="value">"500"</span> <span class="attribute">height</span>=<span class="value">"400"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">path</span> <span class="attribute">d</span>=<span class="value">"M 100 100 L 300 100 L 200 300 z"</span> <span class="attribute">style</span>=<span class="value">"fill:orange; stroke:#666; stroke-width:5px;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">text</span> <span class="attribute">x</span>=<span class="value">"150"</span> <span class="attribute">y</span>=<span class="value">"80"</span> <span class="attribute">font-size</span>=<span class="value">"24"</span> <span class="attribute">font-weight</span>=<span class="value">"bold"</span>&gt;</span>SVG路径<span class="tag">&lt;/<span class="title">text</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-07.png" alt=""></p>
+<h4 id="8-SVG生成文字–text">8.SVG生成文字–text</h4><ol>
+<li>text：绘制文字标签</li>
+<li>x：文字的x坐标</li>
+<li>y：文字的y坐标</li>
+<li>dx：x轴偏移坐标</li>
+<li>dy：y轴便宜坐标</li>
+<li>rotate：所有文字渲染角度</li>
+<li>textlength：渲染的文字所占据长度（可用来设置文字间距）</li>
+<li>lengthAdjust：使用何种方式来渲染文字占据长度</li>
+</ol>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="variable">width</span>=<span class="string">"500"</span> <span class="variable">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">    &lt;<span class="built_in">text</span> x=<span class="string">"170"</span> y=<span class="string">"80"</span> font-<span class="built_in">size</span>=<span class="string">"24"</span> font-weight=<span class="string">"bold"</span>&gt;SVG文字&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">    &lt;<span class="built_in">text</span> x=<span class="string">"130"</span> y=<span class="string">"120"</span> <span class="built_in">rotate</span>=<span class="string">" 45"</span> textlength=<span class="string">"150"</span> font-<span class="built_in">size</span>=<span class="string">"20"</span> font-weight=<span class="string">"bold"</span>&gt;文字旋转<span class="number">45</span>度&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">    &lt;a href=<span class="string">"http://www.cnblogs.com/yizihan"</span>&gt;</span><br><span class="line">        &lt;<span class="built_in">text</span> x=<span class="string">"30"</span> y=<span class="string">"180"</span> <span class="built_in">fill</span>=<span class="string">"orange"</span> textlength=<span class="string">"350"</span> font-<span class="built_in">size</span>=<span class="string">"20"</span> font-weight=<span class="string">"bold"</span>&gt;</span><br><span class="line">            http:<span class="comment">//www.cnblogs.com/yizihan</span></span><br><span class="line">        &lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-08.png" alt=""></p>
+<h4 id="9-SVG绘制描边–stroke">9.SVG绘制描边–stroke</h4><ol>
+<li>g：代表一组</li>
+<li>path：绘制路径</li>
+<li>stroke-width：设置描边粗细</li>
+<li>stroke-linecap：设置描边的末端样式</li>
+<li>stroke-dasharray：设置虚线的格式</li>
+</ol>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="variable">width</span>=<span class="string">"500"</span> <span class="variable">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">    &lt;g&gt;</span><br><span class="line">        &lt;<span class="built_in">text</span> x=<span class="string">"30"</span> y=<span class="string">"30"</span> font-<span class="built_in">size</span>=<span class="string">"20"</span> font-weight=<span class="string">"bold"</span>&gt;<span class="built_in">stroke</span>例子&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">        &lt;path <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> d=<span class="string">"M 50 50 L 300 50"</span> /&gt;</span><br><span class="line">    &lt;/g&gt;</span><br><span class="line">    &lt;g&gt;</span><br><span class="line">        &lt;<span class="built_in">text</span> x=<span class="string">"30"</span> y=<span class="string">"130"</span> font-<span class="built_in">size</span>=<span class="string">"20"</span> font-weight=<span class="string">"bold"</span>&gt;<span class="built_in">stroke</span> linecap&lt;/<span class="built_in">text</span>&gt;</span><br><span class="line">        &lt;path <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-linecap=<span class="string">"butt"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> d=<span class="string">"M 50 150 L 300 150"</span> /&gt;</span><br><span class="line">        &lt;path <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-linecap=<span class="string">"round"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> d=<span class="string">"M 50 180 L 300 180"</span> /&gt;</span><br><span class="line">        &lt;path <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-linecap=<span class="string">"square"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> d=<span class="string">"M 50 210 L 300 210"</span> /&gt;</span><br><span class="line">    &lt;/g&gt;</span><br><span class="line">    &lt;g&gt;</span><br><span class="line">        &lt;<span class="built_in">text</span> x=<span class="string">"30"</span> y=<span class="string">"280"</span> font-<span class="built_in">size</span>=<span class="string">"20"</span> font-weight=<span class="string">"bold"</span>&gt;<span class="built_in">stroke</span> dasharray&lt;/<span class="built_in">text</span>&gt;            </span><br><span class="line">        &lt;path <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-dasharray=<span class="string">"5, 5"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> d=<span class="string">"M 50 300 L 300 300"</span> /&gt;</span><br><span class="line">        &lt;path <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-dasharray=<span class="string">"15, 15"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> d=<span class="string">"M 50 330 L 300 330"</span> /&gt;</span><br><span class="line">        &lt;path <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-dasharray=<span class="string">"55, 55"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> d=<span class="string">"M 50 360 L 300 360"</span> /&gt;</span><br><span class="line">    &lt;/g&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-09.png" alt=""></p>
+<h4 id="10-SVG生成滤镜效果">10.SVG生成滤镜效果</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先定义滤镜</span></span><br><span class="line">&lt;defs&gt;</span><br><span class="line">    &lt;<span class="built_in">filter</span> id=<span class="string">"myfilter"</span> x=<span class="string">"0"</span> y=<span class="string">"0"</span> &gt;</span><br><span class="line">    <span class="comment">// filter标签里的id属性可以为滤镜定义一个唯一的名称;</span></span><br><span class="line">        &lt;feGaussianBlur in=<span class="string">"SourceGraphic"</span> stdDeviation=<span class="string">"5"</span> /&gt;</span><br><span class="line">        <span class="comment">// 滤镜效果是通过&lt;feGaussianBlur&gt;标签进行定义的,--高斯模糊;;fe后缀可用于所有的滤镜;</span></span><br><span class="line">        <span class="comment">// &lt;feGaussianBlur&gt;标签的stdDeviation属性可定义模糊的程度;</span></span><br><span class="line">        <span class="comment">// in="SourceGraphic"这个部分定义了由整个图像创建效果;</span></span><br><span class="line">    &lt;/<span class="built_in">filter</span>&gt;</span><br><span class="line">&lt;/defs&gt;</span><br><span class="line"><span class="comment">// 应用滤镜到图形</span></span><br><span class="line">&lt;<span class="built_in">rect</span> x=<span class="string">"30"</span> y=<span class="string">"30"</span> <span class="variable">width</span>=<span class="string">"200"</span> <span class="variable">height</span>=<span class="string">"100"</span> <span class="built_in">stroke</span>=<span class="string">"green"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"10"</span> <span class="built_in">fill</span>=<span class="string">"orange"</span> <span class="built_in">filter</span>=<span class="string">"url(#myfilter)"</span> /&gt;</span><br><span class="line"><span class="comment">// filter:url属性用来把元素链接到滤镜;当链接滤镜id时,必须使用#字符;</span></span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-10.png" alt=""></p>
+<h4 id="11-SVG生成图案填充效果">11.SVG生成图案填充效果</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;defs&gt;</span><br><span class="line">    &lt;pattern id=<span class="string">"mypattern"</span> patternUnits=<span class="string">"userSpaceOnUse"</span> x=<span class="string">"10"</span> y=<span class="string">"10"</span> <span class="variable">width</span>=<span class="string">"100"</span> <span class="variable">height</span>=<span class="string">"100"</span>&gt;</span><br><span class="line">    <span class="comment">// patternUnits:用来定义图案使用的单位;</span></span><br><span class="line">        &lt;path d=<span class="string">"M 0 0 L 100 0 L 50 100 z"</span> <span class="built_in">fill</span>=<span class="string">"#222"</span> <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"5"</span>  /&gt;  </span><br><span class="line">        <span class="comment">// 绘制一个倒三角; </span></span><br><span class="line">    &lt;/pattern&gt;</span><br><span class="line">&lt;/defs&gt;</span><br><span class="line"><span class="comment">// 应用图案到具体图形;</span></span><br><span class="line">&lt;<span class="built_in">rect</span> x=<span class="string">"10"</span> y=<span class="string">"10"</span> <span class="variable">width</span>=<span class="string">"300"</span> <span class="variable">height</span>=<span class="string">"200"</span> <span class="built_in">stroke</span>=<span class="string">"green"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"5"</span> <span class="built_in">fill</span>=<span class="string">"url(#mypattern)"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-11.png" alt=""></p>
+<h4 id="12-SVG生成渐变效果">12.SVG生成渐变效果</h4><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="variable">width</span>=<span class="string">"500"</span> <span class="variable">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">    <span class="comment">// 定义线性渐变</span></span><br><span class="line">    &lt;defs&gt;</span><br><span class="line">        &lt;linearGradient id=<span class="string">"linearGradient"</span>&gt;</span><br><span class="line">            &lt;stop offset=<span class="string">"0%"</span> stop-<span class="built_in">color</span>=<span class="string">"#f00"</span> /&gt;</span><br><span class="line">            &lt;stop offset=<span class="string">"100"</span> stop-<span class="built_in">color</span>=<span class="string">"#f60"</span> /&gt;</span><br><span class="line">        &lt;/linearGradient&gt;</span><br><span class="line">    &lt;/defs&gt;</span><br><span class="line">    <span class="comment">// 应用线性渐变</span></span><br><span class="line">    &lt;<span class="built_in">rect</span> x=<span class="string">"10"</span> y=<span class="string">"10"</span> <span class="variable">width</span>=<span class="string">"300"</span> <span class="variable">height</span>=<span class="string">"100"</span> <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"5"</span> <span class="built_in">fill</span>=<span class="string">"url(#linearGradient)"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义径向渐变</span></span><br><span class="line">    &lt;defs&gt;</span><br><span class="line">        &lt;radialGradient id=<span class="string">"radialGradient"</span>&gt;</span><br><span class="line">            &lt;stop offset=<span class="string">"0%"</span> stop-<span class="built_in">color</span>=<span class="string">"#f00"</span> /&gt;</span><br><span class="line">            &lt;stop offset=<span class="string">"100%"</span> stop-<span class="built_in">color</span>=<span class="string">"#f60"</span> /&gt;</span><br><span class="line">        &lt;/radialGradient&gt;</span><br><span class="line">    &lt;/defs&gt;</span><br><span class="line">    <span class="comment">// 应用径向渐变</span></span><br><span class="line">    &lt;<span class="built_in">rect</span> x=<span class="string">"10"</span> y=<span class="string">"150"</span> <span class="variable">width</span>=<span class="string">"100"</span> <span class="variable">height</span>=<span class="string">"100"</span> <span class="built_in">stroke</span>=<span class="string">"orange"</span> <span class="built_in">stroke</span>-<span class="variable">width</span>=<span class="string">"5"</span> <span class="built_in">fill</span>=<span class="string">"url(#radialGradient)"</span> /&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+<p> <img src="/img/svg-12.png" alt=""></p>
+<h4 id="13-JS添加互动操作到SVG图形">13.JS添加互动操作到SVG图形</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">svg</span> <span class="attribute">width</span>=<span class="value">"500"</span> <span class="attribute">height</span>=<span class="value">"400"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">rect</span> <span class="attribute">id</span>=<span class="value">"myrect"</span> <span class="attribute">x</span>=<span class="value">"50"</span> <span class="attribute">y</span>=<span class="value">"50"</span> <span class="attribute">width</span>=<span class="value">"200"</span> <span class="attribute">height</span>=<span class="value">"200"</span> <span class="attribute">fill</span>=<span class="value">"orange"</span> <span class="attribute">onClick</span>=<span class="value">"showcolor()"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line"><span class="comment">// 针对SVG图形定义JS方法;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showcolor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> color = <span class="built_in">document</span>.getElementById(<span class="string">'myrect'</span>).getAttributeNS(<span class="literal">null</span>,<span class="string">'fill'</span>);</span><br><span class="line">    <span class="comment">// getAttributeNS():通过命名空间URI和名称来获取属性值;</span></span><br><span class="line">    alert(<span class="string">'矩形填充色为:'</span> + color);</span><br><span class="line">&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="14-SVG图形中添加超链接">14.SVG图形中添加超链接</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg <span class="attribute">width</span>=<span class="string">"500"</span> <span class="attribute">height</span>=<span class="string">"400"</span>&gt;</span><br><span class="line">    &lt;<span class="tag">a</span> xlink:href=<span class="string">"http://www.cnblogs.com/yizihan/"</span> &gt;</span><br><span class="line">        &lt;rect x=<span class="string">"10"</span> y=<span class="string">"10"</span> <span class="attribute">width</span>=<span class="string">"200"</span> <span class="attribute">height</span>=<span class="string">"200"</span> style=<span class="string">"fill:orange; stroke-width:5; stroke:rgb(222, 0, 0)"</span> /&gt;   </span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://yoursite.com/2016/01/14/HTML5-SVG/" data-id="cilro1za00010isgi896pd2o4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTML5/">HTML5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SVG/">SVG</a></li></ul>
+
+      </footer>
+    </div>
+  </article>
+  
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/yizihan/yizihan.github.io" target="_blank"><i class="icon fa fa-github"></i></a></li>
+      
+        <li><a class="social-tooltip" title="weibo" href="http://weibo.com/5328863999/profile?topnav=1&wvr=6" target="_blank"><i class="icon fa fa-weibo"></i></a></li>
+      
+    </ul>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/10/AngularJS入门笔记《上》/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
+        
+          AngularJS入门笔记(上)
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
+  
+    <a href="/2016/01/11/Sass和Compass基础/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">Sass和Compass基础</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+  
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《下》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记《下》" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《下》/" class="title">AngularJS入门笔记《下》</a></p>
+              <p class="item-date"><time datetime="2016-03-10T07:33:16.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《上》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记(上)" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《上》/" class="title">AngularJS入门笔记(上)</a></p>
+              <p class="item-date"><time datetime="2016-03-10T06:58:23.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/14/HTML5-SVG/" class="thumbnail">
+  
+    <span style="background-image:url(/img/svg-cover.gif
+)" alt="HTML5--SVG" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/01/14/HTML5-SVG/" class="title">HTML5--SVG</a></p>
+              <p class="item-date"><time datetime="2016-01-14T07:26:06.000Z" itemprop="datePublished">2016-01-14</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/11/Sass和Compass基础/" class="thumbnail">
+  
+    <span style="background-image:url(/img/Sass.jpg
+)" alt="Sass和Compass基础" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/01/11/Sass和Compass基础/" class="title">Sass和Compass基础</a></p>
+              <p class="item-date"><time datetime="2016-01-11T12:14:32.000Z" itemprop="datePublished">2016-01-11</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/12/23/前端面试题-理论/" class="thumbnail">
+  
+    <span style="background-image:url(/img/mianshiti.png
+)" alt="前端面试题--理论" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2015/12/23/前端面试题-理论/" class="title">前端面试题--理论</a></p>
+              <p class="item-date"><time datetime="2015-12-23T08:50:47.000Z" itemprop="datePublished">2015-12-23</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">10</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 20px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 20px;">AngularJS</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2016 yizihan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
