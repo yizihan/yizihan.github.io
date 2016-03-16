@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JavaScript-变量和作用域(12) | 翌子涵</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="JavaScript">
+  
+
+  <meta name="description" content="一、变量JS变量是松散型的（不强制类型）本质，决定了它只是在特定时间用于保存特定值的一个名字而已；由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的声明周期内改变
+1.基本类型和引用类型基本类型保存在栈内存中的简单数据段；即这种值完全保存在内存中的一个位置；基本类型值包含：Undefined|Null|Boolean|Number|String
+引用类型保存在堆">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-变量和作用域(12)">
+<meta property="og:url" content="http://yoursite.com/2016/02/12/JavaScript-变量和作用域-12/index.html">
+<meta property="og:site_name" content="翌子涵">
+<meta property="og:description" content="一、变量JS变量是松散型的（不强制类型）本质，决定了它只是在特定时间用于保存特定值的一个名字而已；由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的声明周期内改变
+1.基本类型和引用类型基本类型保存在栈内存中的简单数据段；即这种值完全保存在内存中的一个位置；基本类型值包含：Undefined|Null|Boolean|Number|String
+引用类型保存在堆">
+<meta property="og:image" content="http://yoursite.com/img/bl-zyy.gif">
+<meta property="og:updated_time" content="2016-03-16T06:43:21.890Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript-变量和作用域(12)">
+<meta name="twitter:description" content="一、变量JS变量是松散型的（不强制类型）本质，决定了它只是在特定时间用于保存特定值的一个名字而已；由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的声明周期内改变
+1.基本类型和引用类型基本类型保存在栈内存中的简单数据段；即这种值完全保存在内存中的一个位置；基本类型值包含：Undefined|Null|Boolean|Number|String
+引用类型保存在堆">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/博客/">博客</a></li></ul></li></ul>
+                  
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/contact/index.html">联系</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                
+                  <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/技术/博客/">博客</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-JavaScript-变量和作用域-12" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript-变量和作用域(12)
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/2016/02/12/JavaScript-变量和作用域-12/" class="article-date">
+  <time datetime="2016-02-12T05:02:05.000Z" itemprop="datePublished">2016-02-12</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="/img/bl-zyy.gif" alt=""></p>
+<h2 id="一、变量">一、变量</h2><p>JS变量是松散型的（不强制类型）本质，决定了它只是在特定时间用于保存特定值的一个名字而已；<br>由于不存在定义某个变量必须要保存何种数据类型值的规则，变量的值及其数据类型可以在脚本的声明周期内改变</p>
+<h4 id="1-基本类型和引用类型">1.基本类型和引用类型</h4><p><strong>基本类型</strong><br>保存在栈内存中的简单数据段；即这种值完全保存在内存中的一个位置；<br>基本类型值包含：Undefined|Null|Boolean|Number|String</p>
+<p><strong>引用类型</strong><br>保存在堆内存中的对象（可能由多个值构成），即变量中保存的实际上只是一个指针，这个指针指向内存中的另一个位置，该位置保存对象。<br>引用类型的值的大小不固定，因此不能保存在栈内存，必须保存在堆内存中；但可以将引用类型的值的内存地址保存在栈内存中；<br>当查询引用类型的变量时，先从栈内存中读取内存地址，然后通过地址找到堆内存中的值；=&gt;按引用访问</p>
+<h4 id="2-动态属性">2.动态属性</h4><p>定义基本类型值和引用类型值的方式相似：创建一个变量并为该变量赋值<br>但当这个值保存到变量中以后，对不同类型值可以执行的操作就不一样了<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var <span class="built_in">box</span> = <span class="keyword">new</span> <span class="keyword">Object</span>();                     <span class="comment">// 创建引用类型;</span></span><br><span class="line"><span class="built_in">box</span>.name = <span class="string">'lee'</span>;                           <span class="comment">// 新增一个属性;</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">box</span>.name);                      <span class="comment">// =&gt;lee;</span></span><br><span class="line"></span><br><span class="line">var <span class="built_in">box</span> = <span class="string">'lee'</span>;                            <span class="comment">// 创建基本类型</span></span><br><span class="line"><span class="built_in">box</span>.age = <span class="number">15</span>;                               <span class="comment">// 给基本类型添加属性;</span></span><br><span class="line">console.<span class="built_in">log</span>(<span class="built_in">box</span>.age);                       <span class="comment">// =&gt;undefined;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="3-复制变量值">3.复制变量值</h4><p>在变量复制方面,基本类型和引用类型也有所不同;<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本类型赋值的是值本身;</span></span><br><span class="line">var <span class="built_in">box</span> = <span class="string">'lee'</span>;                            <span class="comment">// 在栈内存中生成一个box'lee';</span></span><br><span class="line">var box2 = <span class="built_in">box</span>;                             <span class="comment">// 在栈内存中再生成一个box2'lee';</span></span><br><span class="line"><span class="comment">// box和box2完全独立;两个变量分别操作时互不影响;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 引用类型赋值的是地址;</span></span><br><span class="line">var <span class="built_in">box</span> = <span class="keyword">new</span> <span class="keyword">Object</span>();                    <span class="comment">// 创建一个引用类型;box在栈内存中;而Object在堆内存中;</span></span><br><span class="line"><span class="built_in">box</span>.name = <span class="string">'lee'</span>;                          <span class="comment">// 新增一个属性;</span></span><br><span class="line">var box2 = <span class="built_in">box</span>;                            <span class="comment">// 把引用地址赋值给box2;box2在栈内存中;</span></span><br><span class="line"><span class="comment">// box2=box,因为它们指向的是同一个对象;</span></span><br><span class="line"><span class="comment">// 如果这个对象中的name属性被修改了,box.name和box2.name输出的值都会被修改掉;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="4-传递参数">4.传递参数</h4><p>JS中所有函数的参数都是按值传递的,即参数不会按引用传递;<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num</span>)</span>&#123;                         <span class="comment">// 按值传递,传递的参数是基本类型;</span></span><br><span class="line">    num +=<span class="number">10</span>;                              <span class="comment">// 这里的num是局部变量,全局无效;</span></span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> num = <span class="number">50</span>;</span><br><span class="line"><span class="keyword">var</span> result = box(num);</span><br><span class="line"><span class="built_in">console</span>.log(result);                      <span class="comment">// 60;</span></span><br><span class="line"><span class="built_in">console</span>.log(num);                         <span class="comment">// 50;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(num);                         <span class="comment">// num is not defined;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.name = <span class="string">'lee'</span>;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();              <span class="comment">// 函数内部又创建了一个对象,它是局部变量;但在函数结束时被销毁了;</span></span><br><span class="line">    obj.name = <span class="string">'Mr'</span>;                     <span class="comment">// 并没有替换掉原来的obj;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">box(p);                                  <span class="comment">// 变量p被传递到box()函数中之后就被复制给了obj;在函数内部,obj和p访问的是同一个对象;</span></span><br><span class="line"><span class="built_in">console</span>.log(p.name);                     <span class="comment">// =&gt;lee;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JS函数的参数都将是局部变量;也就是说,没有按引用传递;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="5-检测类型">5.检测类型</h4><p>要检测一个变量的类型，通过typeof运算符来判断；多用来检测基本类型；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="string">'lee'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> box);                <span class="comment">// =&gt;string;</span></span><br></pre></td></tr></table></figure></p>
+<p>要检测变量是什么类型的对象，通过instanceof运算符来查看<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(box <span class="keyword">instanceof</span> <span class="built_in">Array</span>);         <span class="comment">// =&gt;true;</span></span><br><span class="line"><span class="keyword">var</span> box2 = &#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(box2 <span class="keyword">instanceof</span> <span class="built_in">Object</span>);</span><br><span class="line"><span class="keyword">var</span> box3 = <span class="regexp">/g/</span>;</span><br><span class="line"><span class="built_in">console</span>.lgo(box3 <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>);</span><br><span class="line"><span class="keyword">var</span> box4 = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'lee'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(box4 <span class="keyword">instanceof</span> <span class="built_in">String</span>);      <span class="comment">// =&gt;true;是否是字符串对象;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> box5 = <span class="string">'string'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(box5 <span class="keyword">instanceof</span> <span class="built_in">String</span>);      <span class="comment">// =&gt;false;</span></span><br><span class="line"><span class="comment">// 当使用instanceof检查基本类型的值时,它会返回false;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="6-执行环境及作用域">6.执行环境及作用域</h4><p>执行环境：定义了变量或函数有权访问的其他数据，决定了他们各自的行为<br>在Web浏览器中，全局执行环境 = window对象；因此所有的全局变量和函数都是作为window对象的属性和方法创建的；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;                         <span class="comment">// 声明一个全局变量;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(box);                     <span class="comment">// 全局变量可以在函数里访问;</span></span><br><span class="line">&#125;    </span><br><span class="line">setBox();                                 <span class="comment">// 执行函数;</span></span><br><span class="line"><span class="comment">// 全局的变量=window对象的属性;</span></span><br><span class="line"><span class="comment">// 全局的函数=window对象的方法;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// PS:当执行环境中的所有代码执行完毕后,该环境被销毁,保存在其中的所有变量和函数定义也随之销毁;</span></span><br><span class="line"><span class="comment">// 如果是在全局环境下,需要程序执行完毕,或者网页被关闭才会销毁;</span></span><br></pre></td></tr></table></figure></p>
+<p>每个执行环境都有一个与之相关联的变量对象，就好比全局的window可以调用全局变量和全局方法一样；<br>局部的环境也有一个类似window的变量对象，环境中定义的所有变量和函数都保存在这个对象中；我们无法访问这个对象，但解析器会处理数据时后台使用它；<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> box = <span class="string">'red'</span>;                      <span class="comment">// 这里是局部变量,在当前函数体内的值是'red';出了函数体就不被认知;</span></span><br><span class="line">    <span class="built_in">console</span>.log(box);</span><br><span class="line">&#125;    </span><br><span class="line">setBox();</span><br><span class="line"><span class="built_in">console</span>.log(box);</span><br></pre></td></tr></table></figure></p>
+<p>通过传参可以替换函数体内的局部变量，但作用域仅限在函数体内这个局部环境；<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span><span class="params">(box)</span></span>&#123;                     <span class="comment">// 通过传参,将局部变量替换成了全局变量;</span></span><br><span class="line">    alert(box);                           <span class="comment">// 此时box的值是外部调用时传入的参数;=&gt;red;</span></span><br><span class="line">&#125;</span><br><span class="line">setBox(<span class="string">'red'</span>);</span><br><span class="line">alert(box);</span><br></pre></td></tr></table></figure></p>
+<p>如果函数体内还包含着函数，只有这个内函数可以访问外一层的函数的变量；<br>内部环境可以通过作用域链访问所有外部环境，但外部环境不能访问内部环境中的任何变量和函数；<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = <span class="string">'blue'</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setBox</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setColor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> b = <span class="string">'orange'</span>;</span><br><span class="line">        alert(box);</span><br><span class="line">        alert(b);</span><br><span class="line">    &#125;</span><br><span class="line">    setColor();                           <span class="comment">// setColor()的执行环境在setBox()内;</span></span><br><span class="line">&#125;</span><br><span class="line">setBox();</span><br></pre></td></tr></table></figure></p>
+<p>PS:每个函数被调用时都会创建自己的执行环境；当执行到这个函数时，函数的环境就会被推到环境栈中去执行，而执行后又在环境栈中弹出（退出），把控制权交给上一级的执行环境。<br>PS：当代码在一个环境中执行时，就会形成一种叫做作用域链的东西；它的用途是保证对环境中有访问权限的变量和函数进行有序访问；作用域链的前端，就是执行环境的变量对象；</p>
+<h4 id="7-延长作用域链">7.延长作用域链</h4><p>有些语句可以在作用域链的前端临时增加一个变量对象，该变量对象会在代码执行后被移除；<br><strong>with语句</strong>：会将指定的对象添加到作用域链中；<br><strong>catch语句</strong>：会创建一个新的变量对象，其中包含的是被抛出的错误对象的声明<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buildUrl</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> qs = <span class="string">'?debug=true'</span>;</span><br><span class="line">    <span class="keyword">with</span>(location)&#123;                       <span class="comment">// with语句接收的是location对象,因此变量对象中就包含了location对象的所有属性和方法;</span></span><br><span class="line">        <span class="keyword">var</span> url = href+qs;                <span class="comment">// 而这个变量对象被添加到了作用域链的前端;</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> url;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="8-没有块级作用域">8.没有块级作用域</h4><p>块级作用域：表示诸如if语句等有花括号封闭的代码块，所以，支持条件判断来定义变量<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;                                 <span class="comment">// if语句代码块没有局部作用域;</span></span><br><span class="line">    <span class="keyword">var</span> box = <span class="string">'lee'</span>;                      <span class="comment">// 变量声明会将变量添加到当前的执行环境(在这里是全局环境);</span></span><br><span class="line">&#125;</span><br><span class="line">alert(box);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)&#123;                  <span class="comment">// 创建的变量i即使在for循环执行结束后,也依旧会存在与循环外部的执行环境中;</span></span><br><span class="line">    <span class="keyword">var</span> box = <span class="string">'lee'</span>;</span><br><span class="line">&#125;</span><br><span class="line">alert(i);</span><br><span class="line">alert(box);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">box</span><span class="params">(num1,num2)</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sum = num1+num2;                  <span class="comment">// 此时sum是局部变量;如果去掉var,sum就是全局变量了;</span></span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line">alert(box(<span class="number">10</span>,<span class="number">10</span>));</span><br><span class="line">alert(sum);                               <span class="comment">// sum is not defined;访问不到sum;</span></span><br><span class="line"><span class="comment">// PS:不建议不使用var就初始化变量,因为这种方法会导致各种意外发生;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 一般确定变量都是通过搜索来确定该标识符实际代表什么;搜索方式:向上逐级查询;</span></span><br><span class="line">    <span class="keyword">var</span> box = <span class="string">'blue'</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">getBox</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> box;                           <span class="comment">// 此时box是全局变量;如果是var box='red',那就变成局部变量了;</span></span><br><span class="line">    &#125;</span><br><span class="line">    alert(getBox());                            </span><br><span class="line">    <span class="comment">// 调用getBox()时会引用变量box;</span></span><br><span class="line">    <span class="comment">// 首先,搜索getBox()的变量对象,查找名为box的标识符;</span></span><br><span class="line">    <span class="comment">// 然后,搜索继续下一个变量对象(全局环境的变量对象),找到了box标识符;</span></span><br><span class="line"><span class="comment">// PS:变量查询中，访问局部变量要比全局变量更快，因为不需要向上搜索作用域链；</span></span><br></pre></td></tr></table></figure></p>
+
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://yoursite.com/2016/02/12/JavaScript-变量和作用域-12/" data-id="ciluhacv40011l4girk9nbznl" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+      </footer>
+    </div>
+  </article>
+  
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/yizihan/yizihan.github.io" target="_blank"><i class="icon fa fa-github"></i></a></li>
+      
+        <li><a class="social-tooltip" title="weibo" href="http://weibo.com/5328863999/profile?topnav=1&wvr=6" target="_blank"><i class="icon fa fa-weibo"></i></a></li>
+      
+    </ul>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/15/JavaScript-面向对象与原型-15/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
+        
+          JavaScript--面向对象与原型(15)
+        
+      </p>
+      <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+  
+  
+    <a href="/2016/01/14/HTML5-SVG/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">HTML5--SVG</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+  
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《下》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记《下》" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《下》/" class="title">AngularJS入门笔记《下》</a></p>
+              <p class="item-date"><time datetime="2016-03-10T07:33:16.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《上》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记(上)" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《上》/" class="title">AngularJS入门笔记(上)</a></p>
+              <p class="item-date"><time datetime="2016-03-10T06:58:23.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/02/15/JavaScript-面向对象与原型-15/" class="thumbnail">
+  
+    <span style="background-image:url(/img/jsmxdx.gif
+)" alt="JavaScript--面向对象与原型(15)" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/02/15/JavaScript-面向对象与原型-15/" class="title">JavaScript--面向对象与原型(15)</a></p>
+              <p class="item-date"><time datetime="2016-02-15T04:16:41.000Z" itemprop="datePublished">2016-02-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/02/12/JavaScript-变量和作用域-12/" class="thumbnail">
+  
+    <span style="background-image:url(/img/bl-zyy.gif
+)" alt="JavaScript-变量和作用域(12)" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/02/12/JavaScript-变量和作用域-12/" class="title">JavaScript-变量和作用域(12)</a></p>
+              <p class="item-date"><time datetime="2016-02-12T05:02:05.000Z" itemprop="datePublished">2016-02-12</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/01/14/HTML5-SVG/" class="thumbnail">
+  
+    <span style="background-image:url(/img/svg-cover.gif
+)" alt="HTML5--SVG" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/01/14/HTML5-SVG/" class="title">HTML5--SVG</a></p>
+              <p class="item-date"><time datetime="2016-01-14T07:26:06.000Z" itemprop="datePublished">2016-01-14</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">12</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 15px;">AngularJS</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2016 yizihan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

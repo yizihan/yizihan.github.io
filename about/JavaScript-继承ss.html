@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于我 | 翌子涵</title>
+  <title>JavaScript-继承 | 翌子涵</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="">
+  
 
-  <meta name="description" content="翌子涵">
+  <meta name="description" content="继承1.原型链继承是面向对象中一个比较核心的概念ECMAScript只支持继承，不支持接口实现，而实现继承的方式依靠原型链完成实质：利用原型让一个引用类型继承另一个引用类型的属性和方法123456789101112131415161718192021// 原型继承链:Box ==&amp;gt;&amp;gt; Desk ==&amp;gt;&amp;gt; Table;function Box()&amp;#123;">
 <meta property="og:type" content="website">
-<meta property="og:title" content="关于我">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:title" content="JavaScript-继承">
+<meta property="og:url" content="http://yoursite.com/about/JavaScript-继承ss.html">
 <meta property="og:site_name" content="翌子涵">
-<meta property="og:description" content="翌子涵">
-<meta property="og:image" content="http://yoursite.com/img/contact.png">
-<meta property="og:updated_time" content="2016-03-11T12:38:22.950Z">
+<meta property="og:description" content="继承1.原型链继承是面向对象中一个比较核心的概念ECMAScript只支持继承，不支持接口实现，而实现继承的方式依靠原型链完成实质：利用原型让一个引用类型继承另一个引用类型的属性和方法123456789101112131415161718192021// 原型继承链:Box ==&amp;gt;&amp;gt; Desk ==&amp;gt;&amp;gt; Table;function Box()&amp;#123;">
+<meta property="og:updated_time" content="2016-03-16T06:40:48.937Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于我">
-<meta name="twitter:description" content="翌子涵">
+<meta name="twitter:title" content="JavaScript-继承">
+<meta name="twitter:description" content="继承1.原型链继承是面向对象中一个比较核心的概念ECMAScript只支持继承，不支持接口实现，而实现继承的方式依靠原型链完成实质：利用原型让一个引用类型继承另一个引用类型的属性和方法123456789101112131415161718192021// 原型继承链:Box ==&amp;gt;&amp;gt; Desk ==&amp;gt;&amp;gt; Table;function Box()&amp;#123;">
   
   
     <link rel="icon" href="/favicon.png">
@@ -87,7 +88,7 @@
           <section id="main">
             <div class="main-body-header">
 
-              <h1 class="header"><em class="page-title-link" data-url="/about/index.html">关于我</em></h1>
+              <h1 class="header"><em class="page-title-link" data-url="/about/JavaScript-继承ss.html">JavaScript-继承</em></h1>
             </div>
             <div class="main-body-content">
               
@@ -99,26 +100,32 @@
           
   
     <h1 class="article-title" itemprop="name">
-      关于我
+      JavaScript-继承
     </h1>
   
 
         </header>
       
       <p class="article-byline">
-        <a href="/about/index.html" class="article-date">
-  <time datetime="2015-11-23T10:02:22.000Z" itemprop="datePublished">2015-11-23</time>
+        <a href="/about/JavaScript-继承ss.html" class="article-date">
+  <time datetime="2016-02-16T02:55:43.000Z" itemprop="datePublished">2016-02-16</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <p>翌子涵</p>
-<p><img src="/img/contact.png" alt=""></p>
+        <h2 id="继承">继承</h2><h4 id="1-原型链">1.原型链</h4><p>继承是面向对象中一个比较核心的概念<br>ECMAScript只支持继承，不支持接口实现，而实现继承的方式依靠原型链完成<br>实质：利用原型让一个引用类型继承另一个引用类型的属性和方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原型继承链:Box ==&gt;&gt; Desk ==&gt;&gt; Table;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params"></span>)</span>&#123;                                 <span class="comment">// Box构造;</span></span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Lee'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Desk</span>(<span class="params"></span>)</span>&#123;                                <span class="comment">// Desk构造;</span></span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line">Desk.prototype = <span class="keyword">new</span> Box();                     </span><br><span class="line"><span class="comment">// 通过创建Box实例,并赋值给Desk.prototype实现的;通过原型,形成链条;    </span></span><br><span class="line"><span class="comment">// 实质是:重写了Desk的原型对象,取而代之的是一个新类型Box的实例;</span></span><br><span class="line"><span class="comment">// 也就是说原来存在于Box实例中的属性和方法,现在也存在与Desk.prototype中了;</span></span><br><span class="line"><span class="keyword">var</span> desk = <span class="keyword">new</span> Desk();</span><br><span class="line"><span class="built_in">console</span>.log(desk.age);                          <span class="comment">// 100;</span></span><br><span class="line"><span class="built_in">console</span>.log(desk.name);                         <span class="comment">// =&gt;Lee;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Table</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.level = <span class="string">'AAA'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Table.prototype = <span class="keyword">new</span> Desk();                   <span class="comment">// 继续原型链继承;Table继承了Desk;</span></span><br><span class="line"><span class="keyword">var</span> table = <span class="keyword">new</span> Table();</span><br><span class="line"><span class="built_in">console</span>.log(table.name);                        <span class="comment">// Lee;</span></span><br></pre></td></tr></table></figure></p>
+<p>![此处输入图片的描述][1]</p>
+<h4 id="2-原型与实例的关系">2.原型与实例的关系</h4><p>以上原型链继承缺少一环，那就是Object，所有的构造函数都继承自Object；而继承Object是自动完成的，并不需要手动继承；</p>
+<p>在JS中，被继承的函数称为超类型（父类，基类）<br>继承的函数称为子类型（子类，派生类）<br>继承问题：<br>字面量重写原型会中断关系<br>子类型无法给超类型传递参数</p>
+<h4 id="3-借用构造函数（对象冒充）">3.借用构造函数（对象冒充）</h4><p>为了解决引用共享和给超类型无法传参问题<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在子类型构造函数的内部调用超类型构造函数;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params">age</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = [<span class="string">'Lee'</span>,<span class="string">'Jack'</span>,<span class="string">'Hello'</span>];</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Desk</span>(<span class="params">age</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 继承了Box;同时还传递了参数;</span></span><br><span class="line">    <span class="comment">// 这样一来,就会在新Desk对象上执行Box()函数中定义的所有对象初始化代码;</span></span><br><span class="line">    Box.call(<span class="keyword">this</span>,age);                            <span class="comment">// 对象冒充,Desk继承Box,并可以给超类型传参;</span></span><br><span class="line">    <span class="comment">// 为了确保Box构造函数不会重写子类型的属性,可以在超类型构造函数后,再添加应该在子类型中定义的属性;</span></span><br><span class="line">    <span class="keyword">this</span>.height = <span class="number">175</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> desk = <span class="keyword">new</span> Desk(<span class="number">200</span>);　　　　　　　　　　　　　　　<span class="comment">// 向Desk()函数传参,再通过函数冒用向Box()函数传参;</span></span><br><span class="line"><span class="built_in">console</span>.log(desk.age);                             <span class="comment">// =&gt;200;</span></span><br><span class="line"><span class="built_in">console</span>.log(desk.name);                            <span class="comment">// =&gt;['Lee','Jack','Hello'];</span></span><br><span class="line">desk.name.push(<span class="string">'AAA'</span>);                             <span class="comment">// =&gt;添加的新数据,只添加给desk;</span></span><br><span class="line"><span class="built_in">console</span>.log(desk.name);                            <span class="comment">// =&gt;['Lee','Jack','Hello','AAA'];</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="4-组合继承（原型链+借用构造函数）">4.组合继承（原型链+借用构造函数）</h4><p>借用构造函数虽然解决了引用共享和给超类型无法传参问题，但是没有使用原型，复用则无从谈起；所以需要组合继承模式<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用原型链实现对原型属性和方法的继承;</span></span><br><span class="line"><span class="comment">// 通过借用构造函数来实现对实例属性的继承;</span></span><br><span class="line"><span class="comment">// 这样,既通过在原型上定义方法实现了函数复用,又能保证每个实例都有他自己的属性;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Box</span>(<span class="params">age</span>)</span>&#123;　　　　　　　　　　　　　　　　　　   <span class="comment">// 构造函数;</span></span><br><span class="line">    <span class="keyword">this</span>.name = [<span class="string">'Lee'</span>,<span class="string">'Jack'</span>,<span class="string">'Hello'</span>];</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line">Box.prototype.run = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;　　　　　　　　　　　  <span class="comment">// 原型;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name+<span class="keyword">this</span>.age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Desk</span>(<span class="params">age</span>)</span>&#123;</span><br><span class="line">    Box.call(<span class="keyword">this</span>,age);                            <span class="comment">// 继承属性; 对象冒充; 将Box对象的作用域扩充到Desk中,Desk就会继承Box里的属性和方法;</span></span><br><span class="line">&#125;　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 </span><br><span class="line">Desk.prototype = <span class="keyword">new</span> Box();                        <span class="comment">// 继承方法; 原型链继承;</span></span><br><span class="line"><span class="keyword">var</span> desk = <span class="keyword">new</span> Desk(<span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(desk.run());                           <span class="comment">// =&gt;Lee,Jack,Hello100</span></span><br><span class="line"><span class="comment">// 最常用的继承模式;</span></span><br></pre></td></tr></table></figure></p>
 
       </div>
       <footer class="article-footer">
-        <a data-url="http://yoursite.com/about/index.html" data-id="ciluhacuf0009l4gik9gy122n" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://yoursite.com/about/JavaScript-继承ss.html" data-id="ciluijx7t000070gike37cfuc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
         
         
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/">undefined</a></li></ul>
+
       </footer>
     </div>
   </article>
