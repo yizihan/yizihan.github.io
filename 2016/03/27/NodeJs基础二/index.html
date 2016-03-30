@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>NodeJs基础二 | 翌子涵</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="NodeJS">
+  
+
+  <meta name="description" content="6.Node.js EventEmitter-事件触发器7.Node.js Buffer（缓冲区）8.Node.js Stream（流）9.Node.js模块系统
+六、Node.js EventEmitter-事件触发器Node.js所有的异步I/O操作在完成时都会发送一个事件到事件队列。Node.js里面的许多对象都会分发事件：一个net.Server对象会在每次有新链接时分发一个事件，一个fs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJs基础二">
+<meta property="og:url" content="http://yoursite.com/2016/03/27/NodeJs基础二/index.html">
+<meta property="og:site_name" content="翌子涵">
+<meta property="og:description" content="6.Node.js EventEmitter-事件触发器7.Node.js Buffer（缓冲区）8.Node.js Stream（流）9.Node.js模块系统
+六、Node.js EventEmitter-事件触发器Node.js所有的异步I/O操作在完成时都会发送一个事件到事件队列。Node.js里面的许多对象都会分发事件：一个net.Server对象会在每次有新链接时分发一个事件，一个fs">
+<meta property="og:image" content="http://yoursite.com/img/nodejsface.png">
+<meta property="og:updated_time" content="2016-03-30T10:49:32.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NodeJs基础二">
+<meta name="twitter:description" content="6.Node.js EventEmitter-事件触发器7.Node.js Buffer（缓冲区）8.Node.js Stream（流）9.Node.js模块系统
+六、Node.js EventEmitter-事件触发器Node.js所有的异步I/O操作在完成时都会发送一个事件到事件队列。Node.js里面的许多对象都会分发事件：一个net.Server对象会在每次有新链接时分发一个事件，一个fs">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/博客/">博客</a></li></ul></li></ul>
+                  
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/contact/index.html">联系</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                
+                  <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/技术/博客/">博客</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-NodeJs基础二" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      NodeJs基础二
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/2016/03/27/NodeJs基础二/" class="article-date">
+  <time datetime="2016-03-27T09:16:13.000Z" itemprop="datePublished">2016-03-27</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="/img/nodejsface.png" alt=""></p>
+<p>6.Node.js EventEmitter-事件触发器<br>7.Node.js Buffer（缓冲区）<br>8.Node.js Stream（流）<br>9.Node.js模块系统</p>
+<h3 id="六、Node-js_EventEmitter-事件触发器">六、Node.js EventEmitter-事件触发器</h3><p>Node.js所有的异步I/O操作在完成时都会发送一个事件到事件队列。<br>Node.js里面的许多对象都会分发事件：一个net.Server对象会在每次有新链接时分发一个事件，一个fs.readStream对象会在文件被打开的时候发出一个事件。所有这些产生事件的对象都是events.EventEmitter的实例。</p>
+<p><strong>1.EventEmitter类</strong><br>events模块只提供一个<strong>对象</strong>：<strong>events.EventEmitter</strong>。EventEmitter的核心就是<strong>事件触发与事件监听器功能的封装</strong>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入events模块</span></span><br><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="comment">// 实例化EventEmitter，创建emitter对象</span></span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</span><br></pre></td></tr></table></figure></p>
+<p><strong>实例</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新建events.js文件</span></span><br><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> EventEmitter();</span><br><span class="line">event.on(<span class="string">'some_event'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'some_event 事件触发'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    event.emit(<span class="string">'some_event'</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure></p>
+<p>运行上述代码，1秒后控制台输出了‘<strong>some_event事件触发</strong>’。其原理是event对象注册了事件<code>some_event</code>的一个监听器，然后我们通过setTimeout在1000毫秒以后<strong>向event对象发送事件<code>some_event</code>,此时会调用<code>some_event</code>的监视器</strong>。</p>
+<p>EventEmitter的每个事件由<strong>一个事件名</strong>和<strong>若干个参数</strong>组成，事件名是一个字符串，通常表达一定的语义。对于每个事件，EventEmitter支持若干个事件监听器。<br>当事件触发时，注册到这个事件的事件监听器被依次调用，<strong>事件参数作为回调函数参数传递</strong>。<br><strong>实例</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// event.js文件</span></span><br><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line"><span class="comment">// 注册到‘someEvent’事件的第一个监听器</span></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'listener1'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 注册到‘someEvent’事件的第二个监听器</span></span><br><span class="line">emitter.on(<span class="string">'someEvent'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">arg1, arg2</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'listener2'</span>, arg1, arg2);</span><br><span class="line">&#125;);</span><br><span class="line">emitter.emit(<span class="string">'someEvent'</span>, <span class="string">'arg1参数'</span>, <span class="string">'arg2参数'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>执行结果</strong><br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">node</span><span class="identifier"> </span><span class="title">event</span>.js </span><br><span class="line">listener1 arg1参数 arg2参数</span><br><span class="line">listener2 arg1参数 arg2参数</span><br></pre></td></tr></table></figure></p>
+<p>上述例子中，emitter为事件someEvent注册了两个事件监听器，然后触发了someEvent事件。<br>EventEmitter提供了多个属性，如on和emit。<strong>on函数用于绑定事件函数</strong>，<strong>emit属性用于触发一个事件</strong>。</p>
+<p><strong>2.方法</strong><br>方法&amp;描述<br><strong>1.addListener(event,listener)</strong>：为指定事件添加一个监听器到监听器数组尾部。<br><strong>2.on(event,listener)</strong>：为指定事件注册一个监听器，接受一个字符串event和一个回调函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">stream</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'someone connected!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.once(event,listener)</strong>：为指定事件注册一个单次监听器，触发后立刻解除该监听器。<br><strong>4.removeListener(event, listener)</strong>：移除指定事件的某个监听器，监听器必须是该事件已经注册过的监听器。<br><strong>5.removeAllListener([event])</strong>：移除所有事件的所有监听器。如果指定事件，则移除指定事件的所有监听器。<br><strong>6.setMaxListeners(n)</strong>：默认情况下EventEmitter添加的监听器超过10个就会输出警告信息。此函数用于提高监听器的默认限制的数量。<br><strong>7.listeners(event)</strong>：返回指定事件的监听数组。<br><strong>8.emit(event,[arg1],[arg2],[…])</strong>：按参数的顺序执行每个监听器，付过事件有注册监听则返回true，否则返回false。</p>
+<p><strong>实例</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="keyword">var</span> eventEmitter = <span class="keyword">new</span> events.EventEmitter();</span><br><span class="line"><span class="comment">//监听器#1</span></span><br><span class="line"><span class="keyword">var</span> listener1 = <span class="function"><span class="keyword">function</span> <span class="title">listener1</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'监听器listener1执行'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 监听器#2</span></span><br><span class="line"><span class="keyword">var</span> listener2 = <span class="function"><span class="keyword">function</span> <span class="title">listener2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'监听器listener2执行'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 绑定connection事件，处理函数为listener1</span></span><br><span class="line">eventEmitter.addListener(<span class="string">'connection'</span>, listener1);</span><br><span class="line"><span class="comment">// 绑定connection事件，处理函数为listener2</span></span><br><span class="line">eventEmitter.addListener(<span class="string">'connection'</span>, listener2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> eventListeners = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter.listenerCount(eventEmitter,<span class="string">'connection'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(eventListeners + <span class="string">"个监听器连接事件"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 触发connection事件</span></span><br><span class="line">eventEmitter.emit(<span class="string">'connection'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 移除绑定的listener1函数</span></span><br><span class="line">eventEmitter.removeListener(<span class="string">'connection'</span>, listener1);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'listener1不再受监听'</span>);</span><br><span class="line"></span><br><span class="line">eventEmitter.emit(<span class="string">'connection'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> eventListeners = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter.listenerCount(eventEmitter,<span class="string">'connection'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(eventListeners + <span class="string">"个监听器连接事件"</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'程序执行完毕'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>执行结果</strong><br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">node</span><span class="identifier"> </span><span class="title">event</span>.js</span><br><span class="line"><span class="number">2</span>个监听器连接事件</span><br><span class="line">监听器listener1执行</span><br><span class="line">监听器listener2执行</span><br><span class="line">listener1不再受监听</span><br><span class="line">监听器listener2执行</span><br><span class="line"><span class="number">1</span>个监听器连接事件</span><br><span class="line">程序执行完毕</span><br></pre></td></tr></table></figure></p>
+<p><strong>3.error事件</strong><br>EventEmitter定义了一个特殊的事件<strong>error</strong>，它包含了错误的语义，我们在遇到异常的时候通常会触发error事件。<br>当<strong>error</strong>被触发时，EventEmitter规定如果没有响应的监听器，Node.js会把它当作异常，退出程序并输出错误信息。<br>我们一般要为会触发<strong>error</strong>事件的对象设置监听器，避免遇到错误后整个程序崩溃。<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> events = <span class="keyword">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="keyword">var</span> emitter = <span class="keyword">new</span> <span class="keyword">event</span>.EventEmitter();</span><br><span class="line">emitter.emit(<span class="string">'error'</span>);</span><br></pre></td></tr></table></figure></p>
+<p><strong>4.继承EventEmitter</strong><br>大多数时候我们不会直接使用EventEmitter，而是在对象中继承它。包括fs、net、http在内的，只要是支持事件响应的核心模块都是EventEmitter的子类。</p>
+<ol>
+<li>首先，具有某个实体功能的的对象实现事件符合语义，事件的监听和触发应该是一个对象的方法。</li>
+<li>其次，JavaScript的对象机制是基于原型的，支持部分多重继承，继承EventEmitter不会打乱对象原有的继承关系。</li>
+</ol>
+<hr>
+<h3 id="七、Node-js_Buffer（缓冲区）">七、Node.js Buffer（缓冲区）</h3><p>JavaScript语言自身只有字符串数据类型，没有二进制数据类型。<br>但在处理像TCP流或文件流时，必须使用到二进制数据。因此在Node.js中，定义了一个Buffer类，该类用来<strong>创建一个专门存放二进制数据的缓存区</strong>。<br>Buffer库为Node.js带来了一种存储原始数据的方法，可以让Node.js处理二进制数据，每当需要在Node.js中处理I/O操作中移动的数据时，就有可能使用Buffer库。原始数据存储在Buffer类的实例中。一个Buffer类似于一个整数数组，但它对应于V8堆内存之外的一块原始内存。</p>
+<h4 id="1-创建Buffer类">1.创建Buffer类</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建长度为10字节的Buffer实例</span></span><br><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="number">10</span>);</span><br><span class="line"><span class="comment">// 通过给定的数组创建Buffer实例</span></span><br><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>]);</span><br><span class="line"><span class="comment">// 通过一个字符串来创建Buffer实例</span></span><br><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> Buffer(<span class="string">'www.yizihan.github.io'</span>, <span class="string">'utf-8'</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="2-写入缓冲区">2.写入缓冲区</h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buf.write(string[<span class="link_label">, fooset[, length</span>]][, encoding])</span><br></pre></td></tr></table></figure>
+<p><strong>string</strong>：写入缓冲区的字符串<br><strong>offset</strong>：缓冲区开始写入的索引值，默认为0；<br><strong>length</strong>：写入的字节数<br><strong>encoding</strong>：使用的编码<br><strong>返回值</strong><br>返回实际写入的大小。<br><strong>实例</strong><br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">buf = <span class="keyword">new</span> Buffer(<span class="number">256</span>);</span><br><span class="line"><span class="built_in">len</span> = buf.<span class="keyword">write</span>(<span class="string">'www.yizihan.github.io'</span>);</span><br><span class="line">console.<span class="built_in">log</span>(<span class="string">'写入字节数'</span> + <span class="built_in">len</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-从缓冲区读取数据">3.从缓冲区读取数据</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buf.<span class="function"><span class="title">toString</span><span class="params">([encoding[, start[, end]])</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>encoing</strong>：使用的编码<br><strong>start</strong>：指定开始读取的索引位置，默认为0<br><strong>end</strong>：结束位置。<br><strong>返回值</strong><br>解码缓冲区数据并使用指定的编码返回字符串。<br><strong>实例</strong><br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">buf = new Buffer<span class="list">(<span class="number">26</span>)</span><span class="comment">;</span></span><br><span class="line">for<span class="list">(<span class="keyword">var</span> i=0<span class="comment">; i&lt;26; i++)&#123;</span></span><br><span class="line">    buf[i] = i + <span class="number">97</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">console.log<span class="list">(<span class="keyword">buf</span>.toString<span class="list">(<span class="quoted">'ascii</span>')</span>)</span><span class="comment">;         // 输出: abcdefghijklmnopqrstuvwxyz</span></span><br><span class="line">console.log<span class="list">(<span class="keyword">buf</span>.toString<span class="list">(<span class="quoted">'ascii</span>', <span class="number">0</span>,<span class="number">5</span>)</span>)</span><span class="comment">;    // 输出: abcde</span></span></span><br></pre></td></tr></table></figure></p>
+<h4 id="4-将Buffer转换为JSON对象">4.将Buffer转换为JSON对象</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">buf.<span class="function"><span class="title">toJSON</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="5-缓冲区合并">5.缓冲区合并</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer.<span class="function"><span class="title">concat</span><span class="params">(list[, totalLength])</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buffer1 = <span class="keyword">new</span> Buffer(<span class="string">'Node.js'</span>);</span><br><span class="line"><span class="keyword">var</span> buffer2 = <span class="keyword">new</span> Buffer(<span class="string">'yizihan.github.io'</span>);</span><br><span class="line"><span class="keyword">var</span> buffer3 = Buffer.concat([buffer1, buffer2]);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'buffer3 内容'</span> + buffer3.toString());</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="八、Node-js_Stream（流）">八、Node.js Stream（流）</h3><p>Stream是一个抽象接口， Node中有很多对象是实现了这个接口。例如，对http服务器发起请求的request对象就是一个Stream，还有stdout（标准输出）。<br>Stream有四种流类型：<br><strong>Readable</strong>：可读操作<br><strong>Writable</strong>：可写操作<br><strong>Duplex</strong>：可读可写操作<br><strong>Transform</strong>：操作被写入数据，然后读出结果。<br>所有的Stream对象都是EventEmitter的实例，常用的事件有：<br><strong>data</strong>：当有数据可读时触发<br><strong>end</strong>：没有更多的数据可读时触发<br><strong>error</strong>：在接收和写入过程中发生错误时触发<br><strong>finish</strong>：所有数据已被写入到底层系统时触发</p>
+<h4 id="1-从流中读取数据">1.从流中读取数据</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建input.txt文件</span></span><br><span class="line">菜鸟教程</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建main.js</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> data = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建可读流</span></span><br><span class="line"><span class="keyword">var</span> readerSteam = fs.creatReadStream(<span class="string">'input.txt'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置编码</span></span><br><span class="line">readerStream.setEncoding(<span class="string">'UTF8'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理流事件 ==&gt; data,end,and error</span></span><br><span class="line">readerStream.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">chunk</span>)</span>&#123;</span><br><span class="line">    data += chunk;          <span class="comment">// 数据可读，将读取到的数据赋值给data</span></span><br><span class="line">&#125;);</span><br><span class="line">readerStream.on(<span class="string">'end'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data);      <span class="comment">// 所有数据读取完毕时，将读取到的数据输出</span></span><br><span class="line">&#125;);</span><br><span class="line">readerStream.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err.stack); <span class="comment">// 发生错误时</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'程序执行完毕'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果</span></span><br><span class="line">程序执行完毕</span><br><span class="line">菜鸟教程</span><br></pre></td></tr></table></figure>
+<h4 id="2-写入流">2.写入流</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建main.js文件</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> data = <span class="string">'菜鸟教程'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个可以写入的流，写入到文件output.txt中</span></span><br><span class="line"><span class="keyword">var</span> writerStream = fs.createWriteStream(<span class="string">'output.txt'</span>);</span><br><span class="line"><span class="comment">// 使用utf8编码写入数据</span></span><br><span class="line">writerStream.write(data, <span class="string">'UTF8'</span>);</span><br><span class="line"><span class="comment">// 标记文件末尾</span></span><br><span class="line">writerStream.end();</span><br><span class="line"><span class="comment">// 处理流事件 ==&gt; finish and error</span></span><br><span class="line">writerStream.on(<span class="string">'finish'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'写入完成'</span>);    <span class="comment">// 写入数据完成时 </span></span><br><span class="line">&#125;);</span><br><span class="line">writerStream.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(err.stack);     <span class="comment">// 发生错误时</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'程序执行完毕'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以上程序将data变量的数据写入到output.txt文件中，</span></span><br><span class="line">$ node main.js</span><br><span class="line"> 程序执行完毕</span><br><span class="line"> 写入完成</span><br><span class="line"><span class="comment">// 查看output.txt文件的内容</span></span><br><span class="line">菜鸟教程</span><br></pre></td></tr></table></figure>
+<h4 id="3-管道流">3.管道流</h4><p>管道提供了一个输出流到输入流的机制。通常我们用于<strong>从一个流中获取数据并传递到另外一个流中</strong>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建input.txt文件</span></span><br><span class="line">菜鸟教程-管道流实例</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建main.js</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 创建一个可读流</span></span><br><span class="line"><span class="keyword">var</span> readerStream = fs.createReadStream(<span class="string">'input.txt'</span>);</span><br><span class="line"><span class="comment">// 创建一个可写流</span></span><br><span class="line"><span class="keyword">var</span> writerSteam = fs.createWriterStream(<span class="string">'output.txt'</span>);</span><br><span class="line"><span class="comment">// 管道读写操作，读取input.txt文件内容，并将内容写入到output.txt文件中</span></span><br><span class="line">readerStream.pipe(writerStream);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'程序执行完毕'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 代码执行结果</span></span><br><span class="line">程序执行完毕</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看output.txt文件的内容</span></span><br><span class="line">菜鸟教程-管道流实例</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-链式流">4.链式流</h4><p>链式是通过连接输出流到另外一个流并创建多个对个流操作链的机制。链式流一般用于管道操作。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建compress.js文件</span></span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> zlib = <span class="built_in">require</span>(<span class="string">'zlib'</span>);</span><br><span class="line"><span class="comment">// 压缩input.txt文件为input.txt.gz</span></span><br><span class="line">fs.createReadStream(<span class="string">'input.txt'</span>)</span><br><span class="line">  .pipe(zlib.createGzip())</span><br><span class="line">  .pipe(fs.createWriteStream(<span class="string">'input.txt.gz'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'文件压缩完成'</span>);</span><br></pre></td></tr></table></figure></p>
+<p>执行以上操作后，我们可以看到当前目录下生成了input.txt的压缩文件input.txt.gz<br>接下来，解压该文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">var</span> zlib = <span class="built_in">require</span>(<span class="string">'zlib'</span>);</span><br><span class="line"><span class="comment">// 解压input.txt.gz文件为input.txt</span></span><br><span class="line">fs.createReadStream(<span class="string">'input.txt.gz'</span>)</span><br><span class="line">  .pipe(zlib.createGunzip())</span><br><span class="line">  .pipe(fs.createWriteStream(<span class="string">'input.txt'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'文件解压完成'</span>);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="九、Node-js模块系统">九、Node.js模块系统</h3><p>为了让Node.js的文件可以相互调用，Node.js提供了简单的<strong>模块系统</strong>。<br>模块是Node.js应用程序的<strong>基本组成部分</strong>，文件和模块是一一对应的。换言之，一个Node.js文件就是一个模块，这个文件可能是JavaScript代码、JSON或者编译过的C/C++扩展</p>
+<h4 id="1-创建模块">1.创建模块</h4><p>在Node.js中，创建一个模块非常简单，如下我们创建一个’main.js’文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入了hello.js文件</span></span><br><span class="line"><span class="keyword">var</span> hello = <span class="built_in">require</span>(<span class="string">'./hello'</span>);</span><br><span class="line"><span class="comment">// 调用了hello.js文件内的world()方法。</span></span><br><span class="line">hello.world();</span><br></pre></td></tr></table></figure></p>
+<p>以上实例中，代码<code>require(&#39;./hello&#39;)</code>引入了当前目录下的hello.js文件（<code>./</code>为当前目录，node.js默认后缀为 <strong>js</strong>）。</p>
+<p>Node.js提供了exports和require两个对象，其中exports是<strong>模块公开的接口</strong>，require用于<strong>从外部获取一个模块的接口</strong>，即所获取模块的exports对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建hello.js文件</span></span><br><span class="line">exports.world = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello World'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在以上示例中，hello.js通过<strong>exports对象</strong>把world作为模块的访问接口，在main.js中通过require(‘./hello’)加载这个模块，然后就可以<strong>直接访问hello.js中的exports对象的成员函数（world()）了</strong>。</p>
+<p><strong>把一个对象封装到模块中</strong>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// hello.js</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name;</span><br><span class="line">    <span class="keyword">this</span>.setName = <span class="function"><span class="keyword">function</span>(<span class="params">thyName</span>)</span>&#123;</span><br><span class="line">        name = thyName;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello '</span> + name);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports = Hello;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js 这样就可以直接获得这个对象了</span></span><br><span class="line"><span class="keyword">var</span> Hello = <span class="built_in">require</span>(<span class="string">'./hello'</span>);</span><br><span class="line">hello = <span class="keyword">new</span> Hello();</span><br><span class="line">hello.setName(<span class="string">'BYVoik'</span>);</span><br><span class="line">hello.sayHello();</span><br></pre></td></tr></table></figure></p>
+<p>模块接口的唯一变化是使用 <code>module.exports = Hello</code> 代替了 <code>exports.world = function(){}</code> ;</p>
+<h4 id="2-服务端的模块放在哪里">2.服务端的模块放在哪里</h4><p>Node.js中自带了一个叫做‘http’的模块，我们在我们的代码中请求它并把返回值赋给一个本地变量。<br>这把我们的<strong>本地变量</strong>变成了一个拥有所有<strong>http模块</strong>所提供的公共方法的对象。</p>
+<p><strong>从文件模块缓存中加载</strong><br>尽管原生模块和文件模块的优先级不同，但是都不会优先于从文件模块的缓存中加载已经存在的模块。</p>
+<p><strong>从原生模块加载</strong><br>原生模块的优先级仅次于文件模块缓存的优先级。require方法在解析文件名之后，优先检查是否在原生模块中列表中</p>
+<p><strong>从文件加载</strong><br>当文件模块缓存中不存在，而且不是原生模块的时候，Node.js会解析require方法传入的参数，并从文件系统中加载实际的文件，加载过程中的包装和编译细节参见<strong>Stream</strong>章节<br>require方法接受以下几种参数的传递：</p>
+<ul>
+<li>http、fs、path等，原生模块</li>
+<li>./mod或../mod，相对路径的文件模块</li>
+<li>/pathtomodule/mod，绝对路径的文件模块</li>
+<li>mod，非原生模块的文件模块</li>
+</ul>
+<hr>
+
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://yoursite.com/2016/03/27/NodeJs基础二/" data-id="cimd7m23t000pnggiqh5a3qp4" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJS/">NodeJS</a></li></ul>
+
+      </footer>
+    </div>
+  </article>
+  
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/yizihan/yizihan.github.io" target="_blank"><i class="icon fa fa-github"></i></a></li>
+      
+        <li><a class="social-tooltip" title="weibo" href="http://weibo.com/5328863999/profile?topnav=1&wvr=6" target="_blank"><i class="icon fa fa-weibo"></i></a></li>
+      
+    </ul>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/25/NodeJs基础一/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">NodeJs基础一</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+  
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/27/NodeJs基础二/" class="thumbnail">
+  
+    <span style="background-image:url(/img/nodejsface.png
+)" alt="NodeJs基础二" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/27/NodeJs基础二/" class="title">NodeJs基础二</a></p>
+              <p class="item-date"><time datetime="2016-03-27T09:16:13.000Z" itemprop="datePublished">2016-03-27</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/25/NodeJs基础一/" class="thumbnail">
+  
+    <span style="background-image:url(/img/nodejsface.png
+)" alt="NodeJs基础一" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/25/NodeJs基础一/" class="title">NodeJs基础一</a></p>
+              <p class="item-date"><time datetime="2016-03-25T02:06:49.000Z" itemprop="datePublished">2016-03-25</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《下》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记《下》" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《下》/" class="title">AngularJS入门笔记《下》</a></p>
+              <p class="item-date"><time datetime="2016-03-10T07:33:16.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《上》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记(上)" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《上》/" class="title">AngularJS入门笔记(上)</a></p>
+              <p class="item-date"><time datetime="2016-03-10T06:58:23.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/02/16/JavaScript-匿名函数和闭包-16/" class="thumbnail">
+  
+    <span style="background-image:url(/img/nmbb.gif
+)" alt="JavaScript-匿名函数和闭包(16)" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/02/16/JavaScript-匿名函数和闭包-16/" class="title">JavaScript-匿名函数和闭包(16)</a></p>
+              <p class="item-date"><time datetime="2016-02-16T12:17:17.000Z" itemprop="datePublished">2016-02-16</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">15</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">15</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/">NodeJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 15px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 15px;">AngularJS</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 15px;">NodeJS</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2016 yizihan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
