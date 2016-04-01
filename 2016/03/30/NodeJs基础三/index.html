@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>NodeJs基础三 | 翌子涵</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="NodeJS">
+  
+
+  <meta name="description" content="10.Node.js函数11.Node.js路由12.Node.js全局对象13.Node.js常用工具
+十、Node.js函数在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。1234567function say(word)&amp;#123;    console.log(word);&amp;#125;function">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJs基础三">
+<meta property="og:url" content="http://yoursite.com/2016/03/30/NodeJs基础三/index.html">
+<meta property="og:site_name" content="翌子涵">
+<meta property="og:description" content="10.Node.js函数11.Node.js路由12.Node.js全局对象13.Node.js常用工具
+十、Node.js函数在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。1234567function say(word)&amp;#123;    console.log(word);&amp;#125;function">
+<meta property="og:image" content="http://yoursite.com/img/nodejsface.png">
+<meta property="og:updated_time" content="2016-04-01T12:53:45.522Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NodeJs基础三">
+<meta name="twitter:description" content="10.Node.js函数11.Node.js路由12.Node.js全局对象13.Node.js常用工具
+十、Node.js函数在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。1234567function say(word)&amp;#123;    console.log(word);&amp;#125;function">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+</head>
+
+<body>
+  <div id="wrap">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/博客/">博客</a></li></ul></li></ul>
+                  
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/contact/index.html">联系</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                
+                  <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header"><a class="page-title-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/技术/博客/">博客</a></h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-NodeJs基础三" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
+  
+    <h1 class="article-title" itemprop="name">
+      NodeJs基础三
+    </h1>
+  
+
+        </header>
+      
+      <p class="article-byline">
+        <a href="/2016/03/30/NodeJs基础三/" class="article-date">
+  <time datetime="2016-03-30T09:33:21.000Z" itemprop="datePublished">2016-03-30</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="/img/nodejsface.png" alt=""><br>10.Node.js函数<br>11.Node.js路由<br>12.Node.js全局对象<br>13.Node.js常用工具</p>
+<h3 id="十、Node-js函数">十、Node.js函数</h3><p>在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以<strong>在传递参数的地方直接定义函数</strong>。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">say</span>(<span class="params">word</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(word);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">execute</span>(<span class="params">someFunction, value</span>)</span>&#123;</span><br><span class="line">    someFunction(value);</span><br><span class="line">&#125;</span><br><span class="line">execute(say, <span class="string">"hello"</span>);  <span class="comment">// 把函数以参数的形式传递</span></span><br></pre></td></tr></table></figure></p>
+<p>我们把say函数作为execute函数的第一个变量进行了传递。这里返回的不是say的返回值，而是say本身！<br>这样一来，say就变成了execute中的本地变量someFunction，execute可以通过使用someFunction（）来使用say函数。</p>
+<h4 id="1-匿名函数">1.匿名函数</h4><p>我们可以直接在另一个函数的括号<strong>中定义和传递这个函数</strong>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">execute</span>(<span class="params">someFunction, value</span>)</span>&#123;</span><br><span class="line">    someFunction(value);</span><br><span class="line">&#125;</span><br><span class="line">execute(<span class="function"><span class="keyword">function</span>(<span class="params">word</span>)</span>&#123;<span class="built_in">console</span>.log(word)&#125;, <span class="string">"hello"</span>);  <span class="comment">// 使用匿名函数传参</span></span><br></pre></td></tr></table></figure></p>
+<p>我们在execute接受第一个参数的地方直接定义了我们准备传递给execute的匿名函数。</p>
+<h4 id="2-函数传递是如何让HTTP服务器工作的">2.函数传递是如何让HTTP服务器工作的</h4><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var http = require(<span class="string">"http"</span>);</span><br><span class="line">http.createServer(<span class="keyword">function</span>(<span class="built_in">request</span>, <span class="built_in">response</span>)&#123;</span><br><span class="line">    <span class="built_in">response</span>.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>:<span class="string">"text/plain"</span>&#125;);</span><br><span class="line">    <span class="built_in">response</span>.write(<span class="string">"Hello World"</span>);</span><br><span class="line">    <span class="built_in">response</span>.<span class="keyword">end</span>();</span><br><span class="line">&#125;).listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure>
+<p>我们向createServer函数传递了一个<strong>匿名函数</strong>，效果与以下代码相同<br><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var http = require(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">function</span> onRequest(<span class="built_in">request</span>, <span class="built_in">response</span>)&#123;</span><br><span class="line">    <span class="built_in">response</span>.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>:<span class="string">"text/plain"</span>&#125;;</span><br><span class="line">    <span class="built_in">response</span>.write(<span class="string">"Hello World"</span>);</span><br><span class="line">    <span class="built_in">response</span>.<span class="keyword">end</span>();</span><br><span class="line">&#125;</span><br><span class="line">http.createServer(onRequest).listen(<span class="number">8888</span>);</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="十一、Node-js路由">十一、Node.js路由</h3><p>我们要为路由提供<strong>请求的URL</strong>和<strong>其他需要的GET及POST参数</strong>，随后路由需要根据这些数据来执行相应的代码。<br>因此，我们需要<strong>查看HTTP请求</strong>，从中提取出<strong>请求的URL</strong>以及<strong>GET/POST参数</strong>。这些数据都会包含在<strong>request对象</strong>中，该对象作为onRequest()回调函数的<strong>第一个参数(request)</strong>传递。为了解析这些数据，我们需要额外的Node.js模块，它们分别是<strong>url</strong>和<strong>querystring</strong>模块。<br><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">                   url.parse(string).query</span><br><span class="line">                                           |<span class="string"></span><br><span class="line">           url.parse(string).pathname      </span>|</span><br><span class="line">                       |<span class="string">                   </span>|</span><br><span class="line">                       |<span class="string">                   </span>|</span><br><span class="line">                     ------ -------------------</span><br><span class="line">http://localhost:8888/start?foo=bar&amp;hello=world</span><br><span class="line">                                ---       -----</span><br><span class="line">                                 |<span class="string">          </span>|</span><br><span class="line">                                 |<span class="string">          </span>|</span><br><span class="line">              querystring(string)[<span class="string">"foo"</span>]    |<span class="string"></span><br><span class="line">                                            </span>|</span><br><span class="line">                         querystring(string)[<span class="string">"hello"</span>]</span><br></pre></td></tr></table></figure></p>
+<p>现在给onRequest()函数加上一些逻辑，用来找出浏览器请求的URL路径：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onRequest</span>(<span class="params">request, response</span>)</span>&#123;  <span class="comment">// 请求的url及get/post参数都包含在request对象中</span></span><br><span class="line">        <span class="keyword">var</span> pathname = url.parse(request.url).pathname;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Request for "</span> + pathname + <span class="string">" received."</span>);</span><br><span class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>:<span class="string">"text/plain"</span>&#125;);</span><br><span class="line">        response.write(<span class="string">"Hello World"</span>);</span><br><span class="line">        response.end();</span><br><span class="line">    &#125;</span><br><span class="line">    http.createServer(onRequest).listen(<span class="number">8888</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Server has started."</span>);</span><br><span class="line">&#125;</span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure></p>
+<p>现在我们的应用可以通过请求的URL路径来<strong>区别不同请求了</strong>–这使我们得以使用路由来<strong>将请求以URL路径为基准映射到处理程序上</strong>。<br>路由文件router.js：<br><figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">route</span><span class="params">(pathname)</span>&#123;</span></span><br><span class="line">    cosole.<span class="built_in">log</span>(<span class="string">"About to route a request for "</span> + pathname);</span><br><span class="line">&#125;</span><br><span class="line">exports.route = route;</span><br></pre></td></tr></table></figure></p>
+<p>我们将使用<strong>依赖注入</strong>的方式较松散地添加路由模块。<br>首先，我们来扩展一下服务器的start()函数，以便<strong>将路由函数作为参数传递过去</strong>：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">"http"</span>);</span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">require</span>(<span class="string">"url"</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params">route</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">onRequest</span>(<span class="params">request, response</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">var</span> pathname = url.parse(request.url).pathname;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Request for"</span> + pathname + <span class="string">" received."</span>);</span><br><span class="line">        route(pathname);    <span class="comment">// </span></span><br><span class="line">        response.writeHead(<span class="number">200</span>, &#123;<span class="string">"Content-Type"</span>:<span class="string">"text/plain"</span>&#125;);</span><br><span class="line">        response.write(<span class="string">"Hello World"</span>);</span><br><span class="line">        response.end();</span><br><span class="line">    &#125;</span><br><span class="line">    http.createServer(onRequest).listen(<span class="number">8888</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Server has started"</span>);</span><br><span class="line">&#125;</span><br><span class="line">exports.start = start;</span><br></pre></td></tr></table></figure></p>
+<p>同时扩展index.js，使得路由函数可以被注入到服务器中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> server = <span class="built_in">require</span>(<span class="string">"./server"</span>);</span><br><span class="line"><span class="keyword">var</span> router = <span class="built_in">require</span>(<span class="string">"./router"</span>);</span><br><span class="line">server.start(router.route);</span><br></pre></td></tr></table></figure></p>
+<p>现在启动应用，随后请求一个URL，将会看到<strong>应用输出相应的信息</strong>，这表明我们的HTTP服务器已经在使用路由模块了，并会<strong>将请求的路径传递给路由</strong>：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">node index<span class="class">.js</span></span><br><span class="line">Request <span class="keyword">for</span> /foo received.</span><br><span class="line">About to route <span class="tag">a</span> request <span class="keyword">for</span> /foo</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="十二、Node-js全局对象">十二、Node.js全局对象</h3><p>JavaScript中有一个特殊的对象，称为全局对象（Global Object），它及其所有属性都可以在程序的任何地方访问，即<strong>全局变量</strong>。<br>在浏览器JavaScript中，通常window是全局对象，而Node.js中的<strong>全局对象是global</strong>，<strong>所有全局变量都是global对象的属性</strong>。<br>在Node.js我们可以直接访问到global的属性，而不需要在应用中包含它。</p>
+<h4 id="1-全局对象和全局变量">1.全局对象和全局变量</h4><p>global最根本的作用是作为全局变量的宿主。按照ECMAScript的定义，满足一下条件的变量是全局变量：</p>
+<ul>
+<li>在最外层定义的变量</li>
+<li>全局对象的属性</li>
+<li>隐式定义的变量（未定义直接赋值的变量）</li>
+</ul>
+<p>注意：永远使用var定义变量以避免引入全局变量，因为全局变量会<strong>污染命名空间</strong>，提高代码的耦合风险。</p>
+<h4 id="2-__filename">2.__filename</h4><p>__filename表示<strong>当前正执行的脚本的文件名</strong>。它将输出文件所在位置的<strong>绝对路径</strong>，且和命令参数所指定的文件名不一定相同。如果在模块中，返回的值是模块文件的路径。<br><strong>实例</strong><br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 创建main.js文件，输出全局变量__filename的值</span><br><span class="line">console.log(__filename);</span><br><span class="line">// 执行main.js文件</span><br><span class="line"><span class="keyword">node</span><span class="identifier"> </span><span class="title">main</span>.js</span><br><span class="line">/Desktop/nodejs/main.js</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-__dirname">3.__dirname</h4><p>__dirname 表示当前执行脚本所在的目录<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 创建main.js文件，输出全局变量__filename的值</span><br><span class="line">console.log(__filename);</span><br><span class="line">// 执行main.js文件</span><br><span class="line"><span class="keyword">node</span><span class="identifier"> </span><span class="title">main</span>.js</span><br><span class="line">/Desktop/nodejs</span><br></pre></td></tr></table></figure></p>
+<h4 id="4-setTimeout(cb,_ms)">4.setTimeout(cb, ms)</h4><p>setTimeout(cb, ms)全局函数在指定的毫秒（ms）数后执行指定函数（cb）。<br>setTimeout()只执行一次指定函数，返回一个代表定时器的句柄值。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello, World!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 两秒后执行以上函数</span></span><br><span class="line">setTimeout(printHello, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-clearTimeout(t)">5.clearTimeout(t)</h4><p>clearTimeout(t)全局函数用于停止一个之前通过setTimeout()创建的定时器。参数t是通过setTimeout()函数创建的定时器。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello, World!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 设置两秒后执行定时器</span></span><br><span class="line"><span class="keyword">var</span> t = setTimeout(printHello, <span class="number">2000</span>);</span><br><span class="line"><span class="comment">// 清除定时器</span></span><br><span class="line">clearTimeout(t);</span><br></pre></td></tr></table></figure></p>
+<h4 id="6-setInterval(cb,_ms)">6.setInterval(cb, ms)</h4><p>setInterval(cb, ms)全局函数在指定毫秒数后执行指定函数。<br>返回一个代表定时器的句柄值。可以使用clearInterval(t)函数来清除定时器。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Hello, World"</span>);</span><br><span class="line">&#125;</span><br><span class="line">setInterval(printHello, <span class="number">2000</span>);</span><br></pre></td></tr></table></figure></p>
+<p>以上程序每隔两秒就会输出一次“Hello， World”。</p>
+<h4 id="7-console">7.console</h4><p>console用于提供控制台标准输出，它是由Internet Explorer的JScript引擎提供的调试工具，后来逐渐成为浏览器的事实标准。<br>Node.js沿用了这个标准，提供与习惯行为一致的console对象，用于向标准输出流（stdout）或标准错误流（stderr）输出字符。</p>
+<h4 id="8-process（未完）">8.process（未完）</h4><p>process是一个全局变量，即global对象的属性。<br>它用于描述当前Node.js进程状态的对象，提供了一个与操作系统的简单接口。<br><strong>事件&amp;描述</strong><br><strong>exit</strong>：当进程准备退出时触发<br><strong>beforeExit</strong>：当node清空事件循环，并且没有其他安排时触发这个事件。<br><strong>uncaughtException</strong>：当一个异常冒泡回到事件循环，触发这个事件。<br><strong>Signal事件</strong>：当进程接收到信号时就触发。</p>
+<hr>
+<h3 id="十三、Node-js常用工具">十三、Node.js常用工具</h3><p>util是一个Node.js核心模块，提供常用函数的集合，用于弥补核心JavaScript的功能过于精简的不足。</p>
+<h4 id="1-util-inherits">1.util.inherits</h4><p><strong>util.inherits</strong>是一个实现对象间<strong>原型继承</strong>的函数。<br>JavaScript的面向对象特性是基于原型的，与常见的基于类的不同。JavaScript没有提供对象继承的语言级别特性，而是通过原型复制来实现的。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Base</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'base'</span>;</span><br><span class="line">    <span class="keyword">this</span>.base = <span class="number">1991</span>;</span><br><span class="line">    <span class="keyword">this</span>.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Hello "</span> + <span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Base.prototype.showName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'sub'</span>;</span><br><span class="line">&#125;</span><br><span class="line">util.inherits(Sub, Base);</span><br><span class="line"><span class="keyword">var</span> objBase = <span class="keyword">new</span> Base();</span><br><span class="line">objBase.showName();         <span class="comment">// base</span></span><br><span class="line">objBase.sayHello();         <span class="comment">// Hello base</span></span><br><span class="line"><span class="built_in">console</span>.log(objBase);       <span class="comment">// &#123; name:'base', base:1991, sayHello:[Function] &#125;</span></span><br><span class="line"><span class="keyword">var</span> objSub = <span class="keyword">new</span> Sub();     </span><br><span class="line">objSub.showName();          <span class="comment">// sub，这里调用了Sub继承自Base的原型中的showName()函数</span></span><br><span class="line"><span class="built_in">console</span>.log(objSub);        <span class="comment">// &#123; name:'sub' &#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们定义了一个<strong>基础对象Base</strong>和一个<strong>继承自Base的Sub</strong>，Base有三个构造函数内定义的属性和一个原型中定义的函数，<strong>通过util.inherit实现继承</strong>。<br><strong>PS</strong>：Sub仅仅继承了Base在<strong>原型中定义的showName()函数</strong>，而构造函数内部创造的base属性和sayHello函数都没有被Sub继承。同时，在原型中定义的属性不会被console.log作为对象的属性输出。</p>
+<h4 id="2-util-inspect">2.util.inspect</h4><p><strong>util.inspect</strong>：是一个<strong>将任意对象转换为字符串的方法</strong>，通常用于调试和错误输出。它至少接受一个参数object，即要转换的对象。<br><strong>showHidden</strong>是一个可选参数，如果值为true，将会输出更多隐藏信息<br><strong>depth</strong>表示最大递归的层数，如果对象很复杂，可指定层数以控制输出信息的多少。如果不指定depth，默认会递归2层，指定null表示将不限递归层数完整遍历对象。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'byvoid'</span>;</span><br><span class="line">    <span class="keyword">this</span>.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(util.inspect(obj));</span><br></pre></td></tr></table></figure></p>
+<h4 id="3-util-isArray(object)">3.util.isArray(object)</h4><p>如果给定的参数“object”是一个<strong>数组</strong>返回true，否则返回false<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line">util.isArray([])        <span class="comment">// true</span></span><br><span class="line">util.isArray(<span class="keyword">new</span> <span class="built_in">Array</span>) <span class="comment">// true</span></span><br><span class="line">util.isArray(&#123;&#125;)        <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="4-util-isRegExp(object)">4.util.isRegExp(object)</h4><p>如果给定的参数“object”是一个<strong>正则表达式</strong>返回true，否则返回false<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var util = <span class="keyword">require</span>(<span class="string">'util'</span>);</span><br><span class="line">util.isRegExp(<span class="regexp">/some regexp/</span>);               <span class="regexp">//</span> <span class="keyword">true</span></span><br><span class="line">util.isRegExp(new <span class="constant">RegExp</span>(<span class="string">'another regexp'</span>));<span class="regexp">//</span> <span class="keyword">true</span></span><br><span class="line">util.isRegExp(&#123;&#125;);                          <span class="regexp">//</span> <span class="keyword">false</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="5-util-isDate(object)">5.util.isDate(object)</h4><p>如果给定的参数“object”是一个<strong>日期</strong>返回true，否则返回false<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line">util.isDate(<span class="keyword">new</span> <span class="built_in">Date</span>());    <span class="comment">// true</span></span><br><span class="line">util.isDate(<span class="built_in">Date</span>());        <span class="comment">// false</span></span><br><span class="line">util.isDate(&#123;&#125;)             <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="6-util-isError(object)">6.util.isError(object)</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line">util.isError(<span class="keyword">new</span> <span class="built_in">Error</span>());      <span class="comment">// true</span></span><br><span class="line">util.isError(<span class="keyword">new</span> <span class="built_in">TypeError</span>());  <span class="comment">// true</span></span><br><span class="line">util.isError(&#123; name:<span class="string">'Error'</span>, message:<span class="string">'an error occurred'</span> &#125;) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<hr>
+
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://yoursite.com/2016/03/30/NodeJs基础三/" data-id="cimhik0gn000uvkgim36dmk0k" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NodeJS/">NodeJS</a></li></ul>
+
+      </footer>
+    </div>
+  </article>
+  
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/yizihan/yizihan.github.io" target="_blank"><i class="icon fa fa-github"></i></a></li>
+      
+        <li><a class="social-tooltip" title="weibo" href="http://weibo.com/5328863999/profile?topnav=1&wvr=6" target="_blank"><i class="icon fa fa-weibo"></i></a></li>
+      
+    </ul>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/27/NodeJs基础二/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">NodeJs基础二</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
+  
+  <div class="widgets-container">
+    
+      
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/30/NodeJs基础三/" class="thumbnail">
+  
+    <span style="background-image:url(/img/nodejsface.png
+)" alt="NodeJs基础三" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/30/NodeJs基础三/" class="title">NodeJs基础三</a></p>
+              <p class="item-date"><time datetime="2016-03-30T09:33:21.000Z" itemprop="datePublished">2016-03-30</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/27/NodeJs基础二/" class="thumbnail">
+  
+    <span style="background-image:url(/img/nodejsface.png
+)" alt="NodeJs基础二" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/27/NodeJs基础二/" class="title">NodeJs基础二</a></p>
+              <p class="item-date"><time datetime="2016-03-27T09:16:13.000Z" itemprop="datePublished">2016-03-27</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/25/NodeJs基础一/" class="thumbnail">
+  
+    <span style="background-image:url(/img/nodejsface.png
+)" alt="NodeJs基础一" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/25/NodeJs基础一/" class="title">NodeJs基础一</a></p>
+              <p class="item-date"><time datetime="2016-03-25T02:06:49.000Z" itemprop="datePublished">2016-03-25</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《下》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记《下》" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《下》/" class="title">AngularJS入门笔记《下》</a></p>
+              <p class="item-date"><time datetime="2016-03-10T07:33:16.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/03/10/AngularJS入门笔记《上》/" class="thumbnail">
+  
+    <span style="background-image:url(/img/angularjs1.jpg
+)" alt="AngularJS入门笔记(上)" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
+              <p class="item-title"><a href="/2016/03/10/AngularJS入门笔记《上》/" class="title">AngularJS入门笔记(上)</a></p>
+              <p class="item-date"><time datetime="2016-03-10T06:58:23.000Z" itemprop="datePublished">2016-03-10</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">16</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">16</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/">NodeJS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-float">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 13.33px;">AngularJS</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 16.67px;">NodeJS</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
+      </div>
+    </div>
+    <footer id="footer">
+  
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2016 yizihan</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+    
+
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
