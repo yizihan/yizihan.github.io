@@ -3,19 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016/3 | 翌子涵</title>
+  <title>AppServ配置本地多站点访问 | 翌子涵</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
+  <meta name="keywords" content="AppServ">
+  
 
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="翌子涵">
-<meta property="og:url" content="http://yoursite.com/archives/2016/03/index.html">
+  <meta name="description" content="当使用Appserv配置多站点时，域名指向都是127.0.0.1，我们需要对不同的域名进行映射，否则即便配置完毕也是无法访问的，除非有公网IP，并通过DNS进行映射。
+1）添加域名映射文件路径：C:\Windows\System32\drivers\etc\hosts找到127.0.0.1，并添加需要映射的站点域名，比如：1127.0.0.1   bdbctest.com
+2）修改APache配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AppServ配置本地多站点访问">
+<meta property="og:url" content="http://yoursite.com/2016/06/01/AppServ配置本地多站点访问/index.html">
 <meta property="og:site_name" content="翌子涵">
-<meta property="og:description">
+<meta property="og:description" content="当使用Appserv配置多站点时，域名指向都是127.0.0.1，我们需要对不同的域名进行映射，否则即便配置完毕也是无法访问的，除非有公网IP，并通过DNS进行映射。
+1）添加域名映射文件路径：C:\Windows\System32\drivers\etc\hosts找到127.0.0.1，并添加需要映射的站点域名，比如：1127.0.0.1   bdbctest.com
+2）修改APache配置">
+<meta property="og:image" content="http://yoursite.com/img/appserv.png">
+<meta property="og:updated_time" content="2016-06-01T06:26:04.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="翌子涵">
-<meta name="twitter:description">
+<meta name="twitter:title" content="AppServ配置本地多站点访问">
+<meta name="twitter:description" content="当使用Appserv配置多站点时，域名指向都是127.0.0.1，我们需要对不同的域名进行映射，否则即便配置完毕也是无法访问的，除非有公网IP，并通过DNS进行映射。
+1）添加域名映射文件路径：C:\Windows\System32\drivers\etc\hosts找到127.0.0.1，并添加需要映射的站点域名，比如：1127.0.0.1   bdbctest.com
+2）修改APache配置">
   
   
     <link rel="icon" href="/favicon.png">
@@ -85,202 +95,52 @@
           <section id="main">
             <div class="main-body-header">
 
-              <h1 class="header"><i class="icon fa fa-archive"></i>归档: 2016/3</h1>
+              <h1 class="header"><a class="page-title-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/技术/博客/">博客</a></h1>
             </div>
             <div class="main-body-content">
               
-  
-  
-    
-    
+  <article id="post-AppServ配置本地多站点访问" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
       
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year"><i class="icon fa fa-calendar-o"></i>2016</a>
-        </div>
-        <div class="archives">
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/2016/03/30/NodeJs基础三/" class="thumbnail">
+        <header class="article-header">
+          
   
-    <span style="background-image:url(/img/nodejsface.png
-)" alt="NodeJs基础三" class="thumbnail-image"></span>
+    <h1 class="article-title" itemprop="name">
+      AppServ配置本地多站点访问
+    </h1>
   
-</a>
 
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-        <p class="date"><time datetime="2016-03-30T09:33:21.000Z" itemprop="datePublished">2016-03-30</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/2016/03/30/NodeJs基础三/" class="title">NodeJs基础三</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        10.Node.js函数11.Node.js路由12.Node.js全局对象13.Node.js常用工具
-十、Node.js函数在JavaScript中，一个函数可以作为另一个函数接收一个参数。我们可以先定义一个函数，然后传递，也可以在传递参数的地方直接定义函数。1234567function say(word)&#123;    console.log(word);&#125;function 
+        </header>
+      
+      <p class="article-byline">
+        <a href="/2016/06/01/AppServ配置本地多站点访问/" class="article-date">
+  <time datetime="2016-06-01T06:10:47.000Z" itemprop="datePublished">2016-06-01</time>
+</a>
       </p>
+      <div class="article-entry" itemprop="articleBody">
+        <p><img src="/img/appserv.png" alt=""></p>
+<p>当使用Appserv配置多站点时，域名指向都是<code>127.0.0.1</code>，我们需要对不同的域名进行映射，否则即便配置完毕也是无法访问的，除非有公网IP，并通过DNS进行映射。</p>
+<h4 id="1）添加域名映射">1）添加域名映射</h4><p>文件路径：<code>C:\Windows\System32\drivers\etc\hosts</code><br>找到<code>127.0.0.1</code>，并添加需要映射的站点域名，比如：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127<span class="class">.0</span><span class="class">.0</span><span class="class">.1</span>   <span class="tag">bdbctest</span><span class="class">.com</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2）修改APache配置文件，启用虚拟主机配置">2）修改APache配置文件，启用虚拟主机配置</h4><p>文件路径：<code>C:\AppServ\Apache24\conf\httpd.conf</code><br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Virtual hosts</span><br><span class="line"><span class="keyword">Include</span> <span class="keyword">conf</span>/extra/httpd-vhosts.<span class="keyword">conf</span>    <span class="comment">// 启用虚拟主机</span></span><br></pre></td></tr></table></figure></p>
+<pre><code>由于<span class="tag">AppServ</span>配置中<span class="tag">Apache</span>配置是以定制方式存在，上述语句代表<span class="tag">Apache</span>启用虚拟主机设置。同时<span class="tag">AppServ</span>多站点配置功能是以虚拟主机的方式实现，现在可以将<span class="tag">httpd</span><span class="class">.conf</span>配置文件中的：
+</code></pre><figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LoadModule vhost<span class="number">_</span><span class="keyword">alias</span><span class="number">_m</span>odule modules/mod<span class="number">_</span>vhost<span class="number">_</span><span class="keyword">alias</span>.so <span class="comment">// 启用加载</span></span><br></pre></td></tr></table></figure>
+<h4 id="3）修改Apache虚拟主机配置">3）修改Apache虚拟主机配置</h4><p>文件路径：<code>C:\AppServ\Apache24\conf\extra\httpd-vhosts.conf</code><br><figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost _default_:<span class="number">80</span>&gt;</span><br><span class="line"><span class="preprocessor"># DocumentRoot "$&#123;SRVROOT&#125;/htdocs"</span></span><br><span class="line"><span class="preprocessor">#ServerName www.example.com:80</span></span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor"># Add any other Virtual Hosts below</span></span><br><span class="line">&lt;VirtualHost *:<span class="number">80</span>&gt;</span><br><span class="line">   ServerAdmin <span class="number">903502989</span>@qq.com             <span class="comment">// 管理员邮件</span></span><br><span class="line">   DocumentRoot <span class="string">"C:\AppServ\www\webroot"</span>    <span class="comment">// 网站根目录</span></span><br><span class="line">   ServerName bdbctest.com                  <span class="comment">// 站点域名</span></span><br><span class="line">   ServerAlias www.bdbctest.com             <span class="comment">// 站点别名</span></span><br><span class="line">   ErrorLog <span class="string">"logs/dummy-host.example.com-error.log"</span></span><br><span class="line">   CustomLog <span class="string">"logs/dummy-host.example.com-access.log"</span> common</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure></p>
+<p>PS：AppServ多站点配置提示：如果同时配置多个虚拟主机，务必确保第一条虚拟主机记录不可缺失<strong>ServerAlias</strong>选项，否则配置不会成功。</p>
+<h4 id="4）重启Apache">4）重启Apache</h4><h4 id="5）访问">5）访问</h4><p><code>http://bdbctest.com/</code>即可访问本地<code>C:\AppServ\www\webroot\index.html</code></p>
+
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://yoursite.com/2016/06/01/AppServ配置本地多站点访问/" data-id="ciowh7six0022s4gilz63ptuo" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AppServ/">AppServ</a></li></ul>
+
+      </footer>
     </div>
   </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/2016/03/27/NodeJs基础二/" class="thumbnail">
-  
-    <span style="background-image:url(/img/nodejsface.png
-)" alt="NodeJs基础二" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-        <p class="date"><time datetime="2016-03-27T09:16:13.000Z" itemprop="datePublished">2016-03-27</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/2016/03/27/NodeJs基础二/" class="title">NodeJs基础二</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        
-6.Node.js EventEmitter-事件触发器7.Node.js Buffer（缓冲区）8.Node.js Stream（流）9.Node.js模块系统
-六、Node.js EventEmitter-事件触发器Node.js所有的异步I/O操作在完成时都会发送一个事件到事件队列。Node.js里面的许多对象都会分发事件：一个net.Server对象会在每次有新链接时分发一个事件，一个f
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-    
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/2016/03/25/NodeJs基础一/" class="thumbnail">
-  
-    <span style="background-image:url(/img/nodejsface.png
-)" alt="NodeJs基础一" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-        <p class="date"><time datetime="2016-03-25T02:06:49.000Z" itemprop="datePublished">2016-03-25</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/2016/03/25/NodeJs基础一/" class="title">NodeJs基础一</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        
-1、创建Node.js应用2、NPM使用介绍3、Node.js REPL（交互式解释器）4、Node.js 回调函数5、Node.js 事件循环
-介绍Node.js就是运行在服务器端的JavaScriptNode.js是一个基于Chrome JavaScript运行时建立的一个平台Node.js是一个事件驱动I/O服务端JavaScript环境，基于Google的V8引擎，V8引擎执行JavaS
-      </p>
-    </div>
-  </article>
-
-    
-  
-    
-    
-    
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/2016/03/10/AngularJS入门笔记《下》/" class="thumbnail">
-  
-    <span style="background-image:url(/img/angularjs1.jpg
-)" alt="AngularJS入门笔记《下》" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-        <p class="date"><time datetime="2016-03-10T07:33:16.000Z" itemprop="datePublished">2016-03-10</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/2016/03/10/AngularJS入门笔记《下》/" class="title">AngularJS入门笔记《下》</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        12AngularJS HTML DOMng-disabled指令12345&lt;div ng-app ng-init="mySwitch=true"&gt;    &lt;button ng-disabled="mySwitch"&gt;点我！&lt;/button&gt;&lt;/div&gt;&lt;input type="checkbox" ng-model="mySwitch"&gt;
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
-  
-    
-    
-    
-    
-      <div class="article-row">
-    
-        
-  <article class="article article-summary">
-    <div class="article-summary-inner">
-      
-<a href="/2016/03/10/AngularJS入门笔记《上》/" class="thumbnail">
-  
-    <span style="background-image:url(/img/angularjs1.jpg
-)" alt="AngularJS入门笔记(上)" class="thumbnail-image"></span>
-  
-</a>
-
-      <div class="article-meta">
-        <p class="category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-        <p class="date"><time datetime="2016-03-10T06:58:23.000Z" itemprop="datePublished">2016-03-10</time></p>
-      </div>
-      <h2 class="article-title">
-        <a href="/2016/03/10/AngularJS入门笔记《上》/" class="title">AngularJS入门笔记(上)</a>
-      </h2>
-      <p class="article-excerpt">
-        
-        
-01AngularJS简介AngularJS是一个JavaScript框架。它通过&lt;script&gt;标签添加到HTML页面。AngularJS通过指令扩展HTML，且通过表达式绑定数据到HTML。
-AngularJS扩展了HTMLAngularJS通过ng-directives（指令）扩展了HTML
-
-ng-app 指令定义一个AngularJS应用程序
-ng-model 指令把元素值
-      </p>
-    </div>
-  </article>
-
-    
-      </div>
-    
   
   
-    </div></section>
-  
-  
-
 
             </div>
           </section>
@@ -296,6 +156,19 @@ ng-model 指令把元素值
       
     </ul>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/30/NodeJs基础三/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">NodeJs基础三</p>
+      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+    </a>
+  
+</nav>
+
   
   <div class="widgets-container">
     
