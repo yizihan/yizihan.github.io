@@ -89,11 +89,11 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
           <div class="nav-container-inner">
             <ul id="main-nav">
               
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">Главная</a></li>
               
-                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/博客/">博客</a></li></ul></li></ul>
+                    <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/">技术</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/博客/">博客</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/技术/笔记/">笔记</a></li></ul></li></ul>
                   
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">О сайте</a></li>
               
                 <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/contact/index.html">联系</a></li>
               
@@ -101,7 +101,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
             <nav id="sub-nav">
               <div id="search-form-wrap">
                 
-                  <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+                  <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Поиск"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
                 
               </div>
             </nav>
@@ -220,7 +220,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
 <h2 id="七、客户端例子">七、客户端例子</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 发送GET请求</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"search"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 发送Ajax查询请求</span></span><br><span class="line">  <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  request.open(<span class="string">"GET"</span>,<span class="string">"service.php?number="</span> + <span class="built_in">document</span>.getElementByID(<span class="string">"keyword"</span>).value);</span><br><span class="line">  request.send();</span><br><span class="line">  <span class="comment">// 获取服务器响应</span></span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(request.status === <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="comment">// 获取响应信息文本</span></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"searchResult"</span>).innerHTML = request.responseText;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        alert(<span class="string">"发生错误："</span> + request.status);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发送POST请求</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"save"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 发送Ajax查询请求</span></span><br><span class="line">  <span class="keyword">var</span> request = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">  request.open(<span class="string">"POST"</span>,<span class="string">"service.php"</span>);</span><br><span class="line">  <span class="comment">// 构造参数</span></span><br><span class="line">  <span class="keyword">var</span> data = <span class="string">"name="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"staffName"</span>).value</span><br><span class="line">           + <span class="string">"number="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"staffNumber"</span>).value</span><br><span class="line">           + <span class="string">"&amp;sex="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"staffSex"</span>).value</span><br><span class="line">           + <span class="string">"&amp;job="</span> + <span class="built_in">document</span>.getElementById(<span class="string">"staffJob"</span>).value;</span><br><span class="line">  <span class="comment">// 指定一个HTTP请求的头部，它应该包含在通过后续send()调用而发布的请求中</span></span><br><span class="line">  request.setRequestHeader(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</span><br><span class="line">  <span class="comment">// 传入参数</span></span><br><span class="line">  request.send(data);</span><br><span class="line">  <span class="comment">// 获取服务器响应</span></span><br><span class="line">  request.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(request.readyState === <span class="number">4</span>)&#123;</span><br><span class="line">      <span class="keyword">if</span>(request.status === <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="comment">// 获取响应信息文本</span></span><br><span class="line">        <span class="built_in">document</span>.getElementById(<span class="string">"searchResult"</span>).innerHTML = request.responseText;</span><br><span class="line">      &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        alert(<span class="string">"发生错误："</span> + request.status);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       </div>
       <footer class="article-footer">
-        <a data-url="http://yoursite.com/2015/11/25/Ajax详解(上)/" data-id="ciq0v80rj0000f4gia2cyyd76" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+        <a data-url="http://yoursite.com/2015/11/25/Ajax详解(上)/" data-id="citpczg630000yogi7tm5uuup" class="article-share-link"><i class="fa fa-share"></i>Поделиться</a>
         
         
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ajax/">Ajax</a></li></ul>
@@ -236,7 +236,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
           <aside id="sidebar">
   <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
   <div class="sidebar-top">
-    <p>关注我 :</p>
+    <p>Подписаться:</p>
     <ul class="social-links">
       
         <li><a class="social-tooltip" title="github" href="https://github.com/yizihan/yizihan.github.io" target="_blank"><i class="icon fa fa-github"></i></a></li>
@@ -250,7 +250,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
 <nav id="article-nav">
   
     <a href="/2015/12/03/Bootstrap插件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
+      <strong class="article-nav-caption">новые</strong>
       <p class="article-nav-title">
         
           Bootstrap插件
@@ -261,7 +261,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
   
   
     <a href="/2015/11/24/jQuery基础-Ajax/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
+      <strong class="article-nav-caption">старые</strong>
       <p class="article-nav-title">jQuery基础--Ajax</p>
       <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
     </a>
@@ -273,9 +273,66 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
     
       
   <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
+    <h3 class="widget-title">недавние</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/09/30/ES6-字符串的扩展/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/笔记/">笔记</a></p>
+              <p class="item-title"><a href="/2016/09/30/ES6-字符串的扩展/" class="title">ES6-字符串的扩展</a></p>
+              <p class="item-date"><time datetime="2016-09-30T05:56:56.000Z" itemprop="datePublished">2016-09-30</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/09/29/ES6-变量的解构赋值/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/笔记/">笔记</a></p>
+              <p class="item-title"><a href="/2016/09/29/ES6-变量的解构赋值/" class="title">ES6-变量的解构赋值</a></p>
+              <p class="item-date"><time datetime="2016-09-29T07:58:24.000Z" itemprop="datePublished">2016-09-29</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2016/09/29/ES6-var和let-const比较/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/笔记/">笔记</a></p>
+              <p class="item-title"><a href="/2016/09/29/ES6-var和let-const比较/" class="title">ES6-var和let/const比较</a></p>
+              <p class="item-date"><time datetime="2016-09-29T05:00:47.000Z" itemprop="datePublished">2016-09-29</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -317,66 +374,6 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/03/30/NodeJs基础三/" class="thumbnail">
-  
-    <span style="background-image:url(/img/nodejsface.png
-)" alt="NodeJs基础三" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-              <p class="item-title"><a href="/2016/03/30/NodeJs基础三/" class="title">NodeJs基础三</a></p>
-              <p class="item-date"><time datetime="2016-03-30T09:33:21.000Z" itemprop="datePublished">2016-03-30</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/03/27/NodeJs基础二/" class="thumbnail">
-  
-    <span style="background-image:url(/img/nodejsface.png
-)" alt="NodeJs基础二" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-              <p class="item-title"><a href="/2016/03/27/NodeJs基础二/" class="title">NodeJs基础二</a></p>
-              <p class="item-date"><time datetime="2016-03-27T09:16:13.000Z" itemprop="datePublished">2016-03-27</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2016/03/25/NodeJs基础一/" class="thumbnail">
-  
-    <span style="background-image:url(/img/nodejsface.png
-)" alt="NodeJs基础一" class="thumbnail-image"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/技术/">技术</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/技术/博客/">博客</a></p>
-              <p class="item-title"><a href="/2016/03/25/NodeJs基础一/" class="title">NodeJs基础一</a></p>
-              <p class="item-date"><time datetime="2016-03-25T02:06:49.000Z" itemprop="datePublished">2016-03-25</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -384,9 +381,9 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
     
       
   <div class="widget-wrap widget-list">
-    <h3 class="widget-title">分类</h3>
+    <h3 class="widget-title">Категории</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">18</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">18</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/">技术</a><span class="category-list-count">21</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/技术/博客/">博客</a><span class="category-list-count">18</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/技术/笔记/">笔记</a><span class="category-list-count">3</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -394,9 +391,9 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
     
       
   <div class="widget-wrap widget-list">
-    <h3 class="widget-title">归档</h3>
+    <h3 class="widget-title">архивы</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -404,9 +401,9 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
     
       
   <div class="widget-wrap widget-list">
-    <h3 class="widget-title">标签</h3>
+    <h3 class="widget-title">Тэги</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppServ/">AppServ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/">NodeJS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/">Ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS/">AngularJS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AppServ/">AppServ</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ES6/">ES6</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5/">HTML5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NodeJS/">NodeJS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SVG/">SVG</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sass/">Sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/响应式/">响应式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技术/">技术</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/面试/">面试</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -414,9 +411,9 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
     
       
   <div class="widget-wrap widget-float">
-    <h3 class="widget-title">标签云</h3>
+    <h3 class="widget-title">Облако тэгов</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 13.33px;">AngularJS</a> <a href="/tags/AppServ/" style="font-size: 10px;">AppServ</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 16.67px;">NodeJS</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
+      <a href="/tags/Ajax/" style="font-size: 13.33px;">Ajax</a> <a href="/tags/AngularJS/" style="font-size: 13.33px;">AngularJS</a> <a href="/tags/AppServ/" style="font-size: 10px;">AppServ</a> <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/ES6/" style="font-size: 16.67px;">ES6</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/NodeJS/" style="font-size: 16.67px;">NodeJS</a> <a href="/tags/SVG/" style="font-size: 10px;">SVG</a> <a href="/tags/Sass/" style="font-size: 10px;">Sass</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/响应式/" style="font-size: 10px;">响应式</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/面试/" style="font-size: 10px;">面试</a>
     </div>
   </div>
 
@@ -424,7 +421,7 @@ XMLHttpRequest：用于在后台与服务器交换数据；">
     
       
   <div class="widget-wrap widget-list">
-    <h3 class="widget-title">链接</h3>
+    <h3 class="widget-title">ссылки</h3>
     <div class="widget">
       <ul>
         
